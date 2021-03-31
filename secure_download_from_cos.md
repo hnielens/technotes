@@ -42,7 +42,7 @@ https://s3.us-south.cloud-object-storage.appdomain.cloud/my_bucket/test.csv
 
 ## Download the file
 
-Finally you can bring it all together and downlaod the file:
+Finally you can bring it all together and download the file:
 
 ```
 curl -H "Authorization: bearer {{your_temp_bearer_code}}" \
