@@ -24,7 +24,7 @@ Copy the temporary bearer code for later use. Remember, this bearer code will on
 
 ## Get the download url for your COS Bucket/Object
 
-Goto your COS bucket and copy the Public URL endpoint (see screenshot below).
+Goto your COS bucket confirguration and copy the Public URL endpoint (see screenshot below).
 
 ![COS Bucket Configuration](images/cos_bucket_config.png)
 
