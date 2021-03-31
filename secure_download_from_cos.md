@@ -10,17 +10,21 @@ To get secure access to IBM via curl we need to send an authorization bearer tok
 Goto https://cloud.ibm.com/iam/apikeys and create a new API key. This API key is only shown once. It can be used to get access to your IBM Cloud stuff via REST APIs, so copy it somewhere SAFE!
 
 ### Generate the bbearer token
-With the API key you can generate the necessary bearer token.
+With the API key you can generate the necessary bearer token. Replace {{your-apikey}} with your apikey.
 
 ```
 curl -X "POST" "https://iam.cloud.ibm.com/oidc/token" \
      -H 'Accept: application/json' \
      -H 'Content-Type: application/x-www-form-urlencoded' \
-     --data-urlencode "apikey=" \
+     --data-urlencode "apikey={{your-apikey}}" \
      --data-urlencode "response_type=cloud_iam" \
      --data-urlencode "grant_type=urn:ibm:params:oauth:grant-type:apikey"
 ```
 ## Get the download url for your COS Bucket/Object
+
+Goto your COS bucket and
+
+![COS Bucket Configuration](images/cos_bucket_config.png)
 
 
 
