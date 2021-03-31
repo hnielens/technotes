@@ -1,9 +1,9 @@
-# Use curl to download files from IBM Cloud Object Storage
+# Use cURL to download files from IBM Cloud Object Storage
 
-This technote explains how you can use curl to download files from a secured IBM Cloud Object Storage bucket. For a more detailed explanation about using curl with COS check out the IBM Cloud documentation: https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-curl.
+This technote explains how you can use cURL to download files from a secured IBM Cloud Object Storage bucket. For a more detailed explanation about using cURL with COS check out the IBM Cloud documentation: https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-curl.
 
 ## Generating a temporary bearer token
-To get secure access to IBM via curl we need to send an authorization bearer token in the header of our download request. The bearer token can only be used for a limited time, so we will need to generate it each time we want to download stuff. To generate a bearer token we will need an IBM Cloud apikey first. We will use the apikey to generate the temporary bearer token.
+To get secure access to IBM COS via  we need to send an authorization bearer token in the header of our download request. The bearer token can only be used for a limited time, so we will need to generate it each time we want to download stuff. To generate a bearer token we will need an IBM Cloud apikey first. We will use the apikey to generate the temporary bearer token.
 
 ### Get an IBM Cloud API key
 
