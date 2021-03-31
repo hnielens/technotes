@@ -22,16 +22,16 @@ curl -X "POST" "https://iam.cloud.ibm.com/oidc/token" \
 ```
 Copy the temporary bearer code for later use. Remember, this bearer code will only work for 10 minutes or so, it is the apikey that can be used over and over again (unless you delete it in IBM Cloud IAM).
 
-## Get the download url for your COS Bucket/Object
+## Compose the url for your COS Bucket/Object
 
-Goto your COS bucket confirguration and copy the Public URL endpoint (see screenshot below).
+Goto your COS bucket configuration and copy the public endpoint (see screenshot below).
 
 ![COS Bucket Configuration](images/cos_bucket_config.png)
 
 The url for an object in the bucket has this format:
 
 ```
-https://{{public_url_endpoint}}/{{bucket_name}}/{{object_id}}
+https://{{public_endpoint}}/{{bucket_name}}/{{object_id}}
 ```
 
 So, say that you have a file called test.csv in a bucket called my_bucket and your COS is located in US South than the url to access your file is:
