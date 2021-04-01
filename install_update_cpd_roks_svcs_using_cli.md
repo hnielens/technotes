@@ -75,5 +75,7 @@ Upload the tarball to you IBM Cloud Shell using the buttons:
 
 <img src=images/upload-download.png height=35 alt="Upload/Donwload" border=0>
 
-Extract the contents of the tarball:
-tar -xv
+Extract the contents of the tarball, you have upload:
+```
+tar -zxvf cpd-cli-linux-EE-{{cpd-cli_version}}
+```
