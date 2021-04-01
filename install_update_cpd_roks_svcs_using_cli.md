@@ -37,7 +37,6 @@ This is the IBM Cloud Shell welcome:
 ![IBM Cloud Shell Welcom](images/ibm_cloud_shell_welcome.png)
 
 Notice that you can upload/download stuff from/to your pc to/from the shell. We will do that in a minute.
-
 <img src=images/upload-download.png height=35 alt="Upload/Donwload" border=0>
 
 ## Declare some variables for later user
@@ -64,18 +63,34 @@ You can set your namespace/project as the default namespace/project to test you 
 oc project $namespace #the $-sign indicates that we reference the vars we declared earlier
 ```
 
-## Download and install cpd-cli
+## Download, install and configure cpd-cli
 
 Download the cpd-cli installer to your PC. As we are working in the IBM Cloud Shell you will need the latest cpd-cli enterprise edition version for linux. If the latest version is 3.5.3 then you download `cpd-cli-linux-EE-3.5.3.tgz`.
 
 **Note**
-Make sure to keep a copy of this tarball on your PC, as you will probably need to install it more than once (remember: IBM Cloud Shell will reset after 60 minutes of inactivity).
+Make sure to keep a copy of this tarball on your PC, as you will probably need to install it more than once (: IBM Cloud Shell will reset after 60 minutes of inactivity).
 
-Upload the tarball to you IBM Cloud Shell using the buttons:
-
+Upload the tarball to your IBM Cloud Shell environment using the buttons:
 <img src=images/upload-download.png height=35 alt="Upload/Donwload" border=0>
 
-Extract the contents of the tarball, you have upload:
+Extract the contents of the tarball, you have uploaded to the Cloud Shell environment:
 ```
 tar -zxvf cpd-cli-linux-EE-{{cpd-cli_version}}
 ```
+We need to add our license entitlement key to the `repo.yaml` file we just extracted:
+```
+---
+fileservers:
+  -
+    url: "https://raw.github.com/IBM/cloud-pak/master/repo/cpd/3.5"
+registry:
+  -
+    url: cp.icr.io/cp/cpd
+    name: base-registry
+    namespace: ""
+    username: cp
+    apikey: <entitlement key>
+```
+As we will have to do this every time our shell sessions idles out, you might want to download the `repo.yaml` file to your PC, add the entitlement key and save a copy for upload when needed.
+
+Upload the `repo.yaml` file from your PC to the shell environment.
