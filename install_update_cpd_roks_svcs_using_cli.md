@@ -1,5 +1,5 @@
-# How to use cpd-cli to install/patch/upgrade CPD on ROKS
-## Make sure you have gather the necessary information
+# How to use cpd-cli to install/patch/upgrade CPD services on ROKS
+## Make sure you have gathered the necessary info before you begin
 You will need the following stuff, so make sure you collect it upfront, so you can copy/paste it quickly when and where needed further down the line:
 
 - Your entitlement key for IBM container software. This is locacted in your My IBM profile: https://myibm.ibm.com/products-services/containerlibrary
