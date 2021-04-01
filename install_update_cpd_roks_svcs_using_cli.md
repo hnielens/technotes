@@ -38,5 +38,4 @@ This is the IBM Cloud Shell welcome:
 
 Notice that you can upload/download stuff from/to your pc to/from the shell. We will do that in a minute.
 
-![upload/download](images/upload-download.png =50x25)
-`
+<img src=images/upload-download.png height=35 alt="Upload/Donwload">
