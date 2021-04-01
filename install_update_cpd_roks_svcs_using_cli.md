@@ -1,5 +1,3 @@
-<span font="IBM Plex Serif">
-
 # How to use cpd-cli to install/patch/upgrade CPD services on ROKS
 ## Make sure you have gathered the necessary info before you begin
 You will need the following stuff, so make sure you collect it upfront, so you can copy/paste it quickly when and where you need it further down the line:
@@ -40,6 +38,4 @@ This is the IBM Cloud Shell welcome:
 
 Notice that you can upload/download stuff from/to your pc to/from the shell. We will do that in a minute.
 
-<img src=images/upload-download.png height=35 alt="Upload/Donwload">
-
-</span>
+<img src=images/upload-download.png height=35 alt="Upload/Donwload" border=0>
