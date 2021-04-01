@@ -39,3 +39,32 @@ This is the IBM Cloud Shell welcome:
 Notice that you can upload/download stuff from/to your pc to/from the shell. We will do that in a minute.
 
 <img src=images/upload-download.png height=35 alt="Upload/Donwload" border=0>
+
+## Declare some variables for later user
+Let's declare some variable=value pairs with some of the stuff you collected in the beginning to make things easier further along the line:
+
+
+
+## Log in into your cluster
+You can copy the oc CLI command for logging in into your cluster from your cluster's openshift web gui.
+
+![Copy CLI Login Command](images/oc_login.png)
+
+Run the login command in the shell:
+```
+oc login --token={{your_bearer_token}} --server={{your_server_naem}}
+```
+
+## Download and install cpd-cli
+
+Download the cpd-cli installer to your PC. As we are working in the IBM Cloud Shell you will need the latest cpd-cli enterprise edition version for linux. If the latest version is 3.5.3 then you download `cpd-cli-linux-EE-3.5.3.tgz`.
+
+**Note**
+Make sure to keep a copy of this tarball on your PC, as you will probably need to install it more than once (remember: IBM Cloud Shell will reset after 2 hours of inactivity).
+
+Upload the tarball to you IBM Cloud Shell using the buttons:
+
+<img src=images/upload-download.png height=35 alt="Upload/Donwload" border=0>
+
+Extract the contents of the tarball:
+tar -xv
