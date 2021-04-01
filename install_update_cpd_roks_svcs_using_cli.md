@@ -1,4 +1,4 @@
-<span font="IBM Plex">
+<span font="IBM Plex Serif">
 
 # How to use cpd-cli to install/patch/upgrade CPD services on ROKS
 ## Make sure you have gathered the necessary info before you begin
