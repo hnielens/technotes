@@ -115,8 +115,11 @@ Finally, create a `cpd-cli` profile (needed for some actions only). This is also
 https://www.ibm.com/docs/en/cloud-paks/cp-data/3.5.0?topic=installing-creating-cpd-cli-profile
 
 ```
-./cpd-cli config users set cpd-admin-user --username admin --apikey $apikey # Note that we use the $apikey value here
-./cpd-cli config profiles set cpd-admin-profile --user cpd-admin-user --url $mycpdurl #Note that we use the $mycpdurl here
+./cpd-cli config users set cpd-admin-user --username admin --apikey $apikey
+# Note that we use the $apikey value here
+
+./cpd-cli config profiles set cpd-admin-profile --user cpd-admin-user --url $mycpdurl
+# Note that we use the $mycpdurl here
 ```
 
 ## Installing a new services
