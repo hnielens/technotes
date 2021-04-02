@@ -5,6 +5,7 @@
 - [Declare some variables for later use](#declare-some-variables-for-later-use)
 - [Log in into your cluster](#log-in-into-your-cluster)
 - [Download, install and configure cpd-cli](#download-install-and-configure-cpd-cli)
+- [Installing new services](#installing-new-services)
 
 ## Make sure you have gathered the necessary info before you begin
 You will need the following stuff, so make sure you collect it upfront, so you can copy/paste it quickly when and where you need it further down the line:
