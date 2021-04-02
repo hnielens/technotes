@@ -198,7 +198,7 @@ Now we are ready to install Datastage Enterprise Plus:
 --dry-run
 ```
 
-Notice that above is only the dry-run. Drop --dryrun to start the installation for real:
+Notice that above is only the dry-run. Drop `--dryrun` to start the installation for real:
 
 ```
 # Note that we use the $assembly, $namespace, $storageclass and $myclusterdomain values here
