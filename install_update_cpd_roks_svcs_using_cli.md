@@ -5,7 +5,7 @@
 - [Declare some variables for later use](#declare-some-variables-for-later-use)
 - [Log in into your cluster](#log-in-into-your-cluster)
 - [Download, install and configure cpd-cli](#download-install-and-configure-cpd-cli)
-- [Installing new services](#installing-new-services)
+- [Installing, Upgrading and Patching new services](#installing-new-services)
 
 ## Make sure you have gathered the necessary info before you begin
 You will need the following stuff, so make sure you collect it upfront, so you can copy/paste it quickly when and where you need it further down the line:
@@ -123,4 +123,29 @@ https://www.ibm.com/docs/en/cloud-paks/cp-data/3.5.0?topic=installing-creating-c
 # Note that we use the $mycpdurl here
 ```
 
-## Installing new services
+## Installing, Upgrading and Patching new services
+
+Take some time to read about the general process of installing, upgrading and patching the CPD control plane and services in the documentation:
+
+Installing, upgrading and patching involve a little dance that is the same for each service
+
+- Prepare the cluster to install the service? Be attentive to specific requirments for databases from the Db2 family.
+- Install the service
+- Test the service
+- Check for patches
+- Set up instances if applicable
+
+Let's install the Datastage Enterprise Plus service. Note that the code snippets below can be used for any service thanks to the variables we declared in the beginning.
+
+### Prepare
+
+First declare the service you want to install. The service name is mentioned in the installation documentation for the specific service. For Datastage Enterprise Plus the service name is `ds`.
+
+```
+export assembly=ds
+```
+
+**Note**
+A client can choose to buy Datastage Enterprise or Datastage Enterprise Plus. The service name for Datastage Enterprise is `ds-ent`. The service name for Datastage Enterprise Plus is `ds`.
+
+P
