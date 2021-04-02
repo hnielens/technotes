@@ -5,7 +5,7 @@
 - [Declare some variables for later use](#declare-some-variables-for-later-use)
 - [Log in into your cluster](#log-in-into-your-cluster)
 - [Download, install and configure cpd-cli](#download-install-and-configure-cpd-cli)
-- [Installing, Upgrading and Patching new services](#installing-new-services)
+- [Installing, patching and upgrading new services](#installing-patching-and-upgrading-new-services)
 
 ## Make sure you have gathered the necessary info before you begin
 You will need the following stuff, so make sure you collect it upfront, so you can copy/paste it quickly when and where you need it further down the line:
@@ -123,7 +123,7 @@ https://www.ibm.com/docs/en/cloud-paks/cp-data/3.5.0?topic=installing-creating-c
 # Note that we use the $mycpdurl here
 ```
 
-## Installing, Upgrading and Patching new services
+## Installing, patching and upgrading new services
 
 Take some time to read about the general process of installing, upgrading and patching the CPD control plane and services in the documentation:
 
@@ -131,11 +131,12 @@ Installing, upgrading and patching involve a little dance that is the same for e
 
 - Prepare the cluster to install the service? Be attentive to specific requirments for databases from the Db2 family.
 - Install the service
-- Test the service
 - Check for patches
 - Set up instances if applicable
 
 Let's install the Datastage Enterprise Plus service. Note that the code snippets below can be used for any service thanks to the variables we declared in the beginning.
+
+The documentation describes the process for Datstage Enterprise Plus (and for the other services) in detail: https://www.ibm.com/docs/en/cloud-paks/cp-data/3.5.0?topic=plus-setting-up-cluster-datastage-enterprise
 
 ### Prepare
 
@@ -148,4 +149,51 @@ export assembly=ds
 **Note**
 A client can choose to buy Datastage Enterprise or Datastage Enterprise Plus. The service name for Datastage Enterprise is `ds-ent`. The service name for Datastage Enterprise Plus is `ds`.
 
-P
+Run the script that will prepare the cluster by adding stuff like new roles and by checking whether the software assemblies and their dependencies are OK:
+
+```
+# Note that we use the $assembly and $namespace values here
+
+./cpd-cli adm \
+--repo ./repo.yaml \
+--assembly $assembly \
+--namespace $namespace \
+--latest-dependency \
+--accept-all-licenses
+```
+
+Check the results. You will see that the script was not really executed but just simulated the execution. You can excute it by adding `--apply`.
+
+```
+# Note that we use the $assembly and $namespace values here
+
+./cpd-cli adm \
+--repo ./repo.yaml \
+--assembly $assembly \
+--namespace $namespace \
+--latest-dependency \
+--accept-all-licenses
+--apply
+```
+
+### Install
+
+Now we are ready to install Datastage Enterprise Plus:
+
+```
+# Note that we use the $assembly, $namespace, $storageclass and $myclusterdomain values here
+
+./cpd-cli install \
+--assembly $assembly \
+--namespace $namespace \
+--repo ./repo.yaml \
+--storageclass $storageclass \
+--transfer-image-to=image-registry-openshift-image-registry.$myclusterdomain/zen \
+--target-registry-username=$(oc whoami) \
+--target-registry-password=$(oc whoami -t) \
+--insecure-skip-tls-verify \
+--cluster-pull-prefix=image-registry.openshift-image-registry.svc:5000/zen \
+--latest-dependency \
+--accept-all-licenses \
+--dry-run
+```
