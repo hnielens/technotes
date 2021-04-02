@@ -149,7 +149,7 @@ export assembly=ds
 **Note**
 A client can choose to buy Datastage Enterprise or Datastage Enterprise Plus. The service name for Datastage Enterprise is `ds-ent`. The service name for Datastage Enterprise Plus is `ds`.
 
-Run the script that will prepare the cluster by adding stuff like new roles and by checking whether the software assemblies and their dependencies are OK:
+Run the script that will prepare the cluster by doing some checks and adding stuff like new roles:
 
 ```
 # Note that we use the $assembly and $namespace values here
@@ -172,7 +172,7 @@ Check the results. You will see that the script was not really executed but just
 --assembly $assembly \
 --namespace $namespace \
 --latest-dependency \
---accept-all-licenses
+--accept-all-licenses \
 --apply
 ```
 
