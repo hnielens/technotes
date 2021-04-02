@@ -1,6 +1,6 @@
 # How to use cpd-cli to install/patch/upgrade CPD services on ROKS
 
-[Make sure you have gathered the necessary info before you begin](## Make sure you have gathered the necessary info before you begin)
+[Make sure you have gathered the necessary info before you begin](# Make sure you have gathered the necessary info before you begin)
 
 
 ## Make sure you have gathered the necessary info before you begin
