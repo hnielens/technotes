@@ -81,7 +81,7 @@ Download the `cpd-cli` installer to your PC. As we are working in the IBM Cloud 
 Make sure to keep a copy of this tarball on your PC, as you will probably need to install it more than once. Remember: IBM Cloud Shell will reset after 60 minutes of inactivity.
 
 ### Upload the tarball to your shell
-Upload the tarball to your IBM Cloud Shell environment using the buttons:</br>
+Upload the tarball to your IBM Cloud Shell environment using the upload button:</br>
 ![](images/upload-download.png)
 
 ### Extract the tarball
@@ -104,9 +104,9 @@ registry:
     username: cp
     apikey: <entitlement key>
 ```
-As we will have to do this every time our shell session idles out, you might want to download the `repo.yaml` file to your PC, add the entitlement key and save a copy for upload when needed.
+As we will have to do this every time our shell session idles out, you might want to download the `repo.yaml` file to your PC (use the button), add the entitlement key and save a copy for upload when needed.
 
-Upload the `repo.yaml` file from your PC to the shell environment.
+Upload the `repo.yaml` file from your PC to the shell environment (use the button).
 
 This section discusses `cpd-cli` and `repo.yaml` in the documentation for CPD v3.5: https://www.ibm.com/docs/en/cloud-paks/cp-data/3.5.0?topic=tasks-obtaining-installation-files
 
