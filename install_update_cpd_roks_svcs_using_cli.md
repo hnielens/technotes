@@ -197,3 +197,7 @@ Now we are ready to install Datastage Enterprise Plus:
 --accept-all-licenses \
 --dry-run
 ```
+
+### Patch
+
+TBD
