@@ -198,6 +198,25 @@ Now we are ready to install Datastage Enterprise Plus:
 --dry-run
 ```
 
+Notice that above is only the dry-run. Drop --dryrun to start the installation for real:
+
+```
+# Note that we use the $assembly, $namespace, $storageclass and $myclusterdomain values here
+
+./cpd-cli install \
+--assembly $assembly \
+--namespace $namespace \
+--repo ./repo.yaml \
+--storageclass $storageclass \
+--transfer-image-to=image-registry-openshift-image-registry.$myclusterdomain/zen \
+--target-registry-username=$(oc whoami) \
+--target-registry-password=$(oc whoami -t) \
+--insecure-skip-tls-verify \
+--cluster-pull-prefix=image-registry.openshift-image-registry.svc:5000/zen \
+--latest-dependency \
+--accept-all-licenses
+```
+
 ### Patch
 
 TBD
