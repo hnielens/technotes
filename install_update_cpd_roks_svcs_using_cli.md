@@ -2,7 +2,9 @@
 
 - [Make sure you have gathered the necessary info before you begin](#make-sure-you-have-gathered-the-necessary-info-before-you-begin)
 - [Choose a "computer" to install from (aka a bastion node)](#choose-a-computer-to-install-from-aka-a-bastion-node)
-
+- [Declare some variables for later use](#declare-some-variables-for-later-use)
+- [Log in into your cluster](#log-in-into-your-cluster)
+- [Download, install and configure cpd-cli](#download-install-and-configure-cpd-cli)
 
 ## Make sure you have gathered the necessary info before you begin
 You will need the following stuff, so make sure you collect it upfront, so you can copy/paste it quickly when and where you need it further down the line:
@@ -44,7 +46,7 @@ This is the IBM Cloud Shell welcome:
 Notice that you can upload/download stuff from/to your pc to/from the shell. We will do that in a minute.
 <img src=images/upload-download.png height=35 alt="Upload/Donwload" border=0>
 
-## Declare some variables for later user
+## Declare some variables for later use
 Let's declare some variable=value pairs with some of the stuff you collected in the beginning to make things easier further along the line (the variables are used in further code snippets):
 
 ```
