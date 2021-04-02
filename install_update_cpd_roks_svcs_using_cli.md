@@ -44,7 +44,7 @@ This is the IBM Cloud Shell welcome:
 ![IBM Cloud Shell Welcom](images/ibm_cloud_shell_welcome.png)
 
 Notice that you can upload/download stuff from/to your pc to/from the shell. We will do that in a minute.
-<img src=images/upload-download.png height=35 alt="Upload/Donwload" border=0>
+![](images/upload-download.png)
 
 ## Declare some variables for later use
 Let's declare some variable=value pairs with some of the stuff you collected in the beginning to make things easier further along the line (the variables are used in further code snippets):
@@ -78,7 +78,7 @@ Download the `cpd-cli` installer to your PC. As we are working in the IBM Cloud 
 Make sure to keep a copy of this tarball on your PC, as you will probably need to install it more than once (: IBM Cloud Shell will reset after 60 minutes of inactivity).
 
 Upload the tarball to your IBM Cloud Shell environment using the buttons:
-<img src=images/upload-download.png height=35 alt="Upload/Donwload" border=0>
+![](images/upload-download.png)
 
 Extract the contents of the tarball, you have uploaded to the Cloud Shell environment:
 ```
