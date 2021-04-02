@@ -122,4 +122,4 @@ https://www.ibm.com/docs/en/cloud-paks/cp-data/3.5.0?topic=installing-creating-c
 # Note that we use the $mycpdurl here
 ```
 
-## Installing a new services
+## Installing new services
