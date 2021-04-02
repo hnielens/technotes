@@ -53,6 +53,7 @@ Let's declare some variable=value pairs with some of the stuff you collected in 
 export namespace={{your_cpd_namespace}}
 export storageclass={{your_storage_class}}
 export myclusterdomain={{your_cluster_domain_name_here}}
+export mycpdurl={{your_cpd_url}}
 export apikey={{your_api_key_here}}
 ```
 
@@ -67,23 +68,28 @@ oc login --token={{your_bearer_token}} --server={{your_server_naem}}
 ```
 You can set your namespace/project as the default namespace/project to test you are whether you are successfully logged in into your cluster:
 ```
-oc project $namespace #the $-sign indicates that we reference the vars we declared earlier
+oc project $namespace # The $-sign indicates that we reference the vars we declared earlier
 ```
 
 ## Download, install and configure cpd-cli
 
+### Download the tarball to your pc
+
 Download the `cpd-cli` installer to your PC. As we are working in the IBM Cloud Shell you will need the latest `cpd-cli` enterprise edition version for linux. If the latest version is 3.5.3 then you download `cpd-cli-linux-EE-3.5.3.tgz`.
 
 **Note**
-Make sure to keep a copy of this tarball on your PC, as you will probably need to install it more than once (: IBM Cloud Shell will reset after 60 minutes of inactivity).
+Make sure to keep a copy of this tarball on your PC, as you will probably need to install it more than once. Remember: IBM Cloud Shell will reset after 60 minutes of inactivity.
 
+### Upload the tarball to your shell
 Upload the tarball to your IBM Cloud Shell environment using the buttons:</br>
 ![](images/upload-download.png)
 
+### Extract the tarball
 Extract the contents of the tarball, you have uploaded to the Cloud Shell environment:
 ```
 tar -zxvf cpd-cli-linux-EE-{{cpd-cli_version}}
 ```
+### Edit and save the repo.yaml
 We need to add our license entitlement key to the `repo.yaml` file we just extracted:
 ```
 ---
@@ -103,3 +109,14 @@ As we will have to do this every time our shell session idles out, you might wan
 Upload the `repo.yaml` file from your PC to the shell environment.
 
 This section discusses `cpd-cli` and `repo.yaml` in the documentation for CPD v3.5: https://www.ibm.com/docs/en/cloud-paks/cp-data/3.5.0?topic=tasks-obtaining-installation-files
+
+### Create and save a cpd-cli profile
+Finally, create a `cpd-cli` profile (needed for some actions only). This is also described in detail in the documentation:
+https://www.ibm.com/docs/en/cloud-paks/cp-data/3.5.0?topic=installing-creating-cpd-cli-profile
+
+```
+./cpd-cli config users set cpd-admin-user --username admin --apikey $apikey # Note that we use the $apikey value here
+./cpd-cli config profiles set cpd-admin-profile --user cpd-admin-user --url $mycpdurl #Note that we use the $mycpdurl here
+```
+
+## Installing a new services
