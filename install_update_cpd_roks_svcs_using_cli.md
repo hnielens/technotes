@@ -47,12 +47,12 @@ The advantages of using IBM Cloud Shell:
 The **dis**advantages of using IBM Cloud shell:
 
 - Your environment is recycled after an hour of inactivity, so you will need to upload/install the `cpd-cli` and set your entitlement key each time after the environment is recycled.
-- Long running scripts are killed
+- Long running scripts are killed...
 - You can use the IBM Cloud Shell for maximum 50 hours per week.
 
-To keep things simple and to avoid having to install the IBM Cloud CLI, `oc` and `kubectl` we assume here that you will use the IBM Cloud Shell.
-***Note***
-As the IBM Cloud Shell environment will be reset after one hour of inactivity (includes long running scripts) IBM Cloud Shell is not a good option if you want to automate the installation of several services using a scripted loop. If you want more "freedom", you might want to deploy a linux server (CentOS/RHEL)
+So... as the IBM Cloud Shell environment will be reset after one hour of inactivity (includes long running scripts) and long running scripts will be killed, IBM Cloud Shell is **not a good** option if you want use it as a bastion node for installation.
+
+It **is** a good option for simple administrative tasks.
 
 Starting the shell is easy: goto https://cloud.ibm.com and click the start shell button in the top menu:
 
