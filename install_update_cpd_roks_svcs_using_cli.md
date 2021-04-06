@@ -2,6 +2,8 @@
 
 This document discusses how you can install extra services on top of an **existing** Cloud Pak for Data deployment that was originally installed using the [IBM Cloud Cloud Pak for Data installer](https://cloud.ibm.com/catalog/content/ibm-cp-datacore-6825cc5d-dbf8-4ba2-ad98-690e6f221701-global).
 
+If you need a walkthrough on how to install RedHat Openshift and Cloud Pak for Data completely from scratch, please follow this guide: [Install CPD 3.x on Red Hat OpenShift 4.x on VMWare or Bare Metal] (https://github.com/IBM-ICP4D/cloud-pak-ocp-4#install-red-hat-openshift-4x-on-vmware-or-bare-metal)
+
 - [Make sure you have gathered the necessary info before you begin](#make-sure-you-have-gathered-the-necessary-info-before-you-begin)
 - [Choose a "computer" to install from (aka a bastion node)](#choose-a-computer-to-install-from-aka-a-bastion-node)
 - [Declare some variables for later use](#declare-some-variables-for-later-use)
@@ -20,10 +22,20 @@ You will need the following stuff, so make sure you collect it upfront, so you c
 - The homepage base url of your Cloud Pak for Data instance, e.g. https://zen-cpd-zen.mycluster-ams03-873383-bbeafa5fcc6c15e1c7b1c5daea86b416-0000.ams03.containers.appdomain.cloud/
 
 ## Choose a "computer" to install from (aka a bastion node)
-Although it is possible to install from Mac I would advise installing from a linux machine. Moreover, the closer that linux machine is to your cluster the better because... the `cpd-cli` will download and transfer the necessary software images for the services you are going to install/update/patch.
 
-So... unless you can go and sit in the data center and plug in your Mac in the network, you will need an alternative. You can either provision/reuse a linux VM in the same IBM Cloud data center/region or choose the quick and dirty way: use IBM Cloud Shell.
+We will use `cpd-cli` to prepare, download and transfer the necessary software images for the services you are going to install/update/patch. when you choosing your "bastion node", consider that the closer it is located to your cluster, the smoother your experience will probably be.
 
+### Option 1: Use your IBM PC as a bastion
+#### Use your Mac
+You can use the default Terminal app (or your preferred terminal, e.g. iTerm) to run `cpd-cli`. Consider the Linux VM alternative if you encouner latency or bandwidth issues.
+
+#### Use your Windows 10
+Configure and set up your Windows 10 machine for linux to run `cpd-cli`. Consider the Linux VM alternative if you encouner latency or bandwidth issues. [Use this walkthrough to set up linux on your Windows 10 machine](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
+
+ ### Option 2: Provision a linux VM (or reuse an existing one)
+ How to provision a linux VM in IBM Cloud Classic Infrastructure
+
+### Can I use IBM Cloud Shell?
 IBM Cloud Shell is an in-browser shell that you can quickly start from the https://cloud.ibm.com homepage.
 
 The advantages of using IBM Cloud Shell:
@@ -35,9 +47,12 @@ The advantages of using IBM Cloud Shell:
 The **dis**advantages of using IBM Cloud shell:
 
 - Your environment is recycled after an hour of inactivity, so you will need to upload/install the `cpd-cli` and set your entitlement key each time after the environment is recycled.
+- Long running scripts are killed
 - You can use the IBM Cloud Shell for maximum 50 hours per week.
 
-To keep things simple and to avoid having to install `oc` and `kubectl` we assume here that you will use the IBM Cloud Shell.
+To keep things simple and to avoid having to install the IBM Cloud CLI, `oc` and `kubectl` we assume here that you will use the IBM Cloud Shell.
+***Note***
+As the IBM Cloud Shell environment will be reset after one hour of inactivity (includes long running scripts) IBM Cloud Shell is not a good option if you want to automate the installation of several services using a scripted loop. If you want more "freedom", you might want to deploy a linux server (CentOS/RHEL)
 
 Starting the shell is easy: goto https://cloud.ibm.com and click the start shell button in the top menu:
 
@@ -91,7 +106,7 @@ Upload the tarball to your IBM Cloud Shell environment using the upload button:<
 ### Extract the tarball
 Extract the contents of the tarball, you have uploaded to the Cloud Shell environment:
 ```
-tar -zxvf cpd-cli-linux-EE-{{cpd-cli_version}}
+tar xvf cpd-cli-linux-EE-{{cpd-cli_version}}
 ```
 ### Edit and save the repo.yaml
 We need to add our license entitlement key to the `repo.yaml` file we just extracted:
