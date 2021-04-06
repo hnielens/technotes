@@ -12,11 +12,12 @@ This document discusses how you can install extra services on top of an **existi
 ## Make sure you have gathered the necessary info before you begin
 You will need the following stuff, so make sure you collect it upfront, so you can copy/paste it quickly when and where you need it further down the line:
 
-- Your entitlement key for IBM container software. This is located in your My IBM profile: https://myibm.ibm.com/products-services/containerlibrary
+- Your entitlement key for IBM container software. This is located in your My IBM profile: https://myibm.ibm.com/products-services/containerlibrary We will need to add this to the repo.yaml as described below in "[Edit and save the repo.yaml](#edit-and-save-the-repoyaml)".
 - Your cluster's ingress subdomain name. You can copy this from your cluster details in IBM Cloud: https://cloud.ibm.com/kubernetes/clusters.
 - The name of your CPD project/namespace, e.g. `zen`.
 - The apikey of your CPD instance, you can find that in the profile of your CPD administrator account.
 - The name of the storageclass you choose when you installed CPD using the IBM Cloud installer (for endurance type storage the storage class is called `ibmc-file-gold-gid`).
+- The homepage base url of your Cloud Pak for Data instance, e.g. https://zen-cpd-zen.mycluster-ams03-873383-bbeafa5fcc6c15e1c7b1c5daea86b416-0000.ams03.containers.appdomain.cloud/
 
 ## Choose a "computer" to install from (aka a bastion node)
 Although it is possible to install from Mac I would advise installing from a linux machine. Moreover, the closer that linux machine is to your cluster the better because... the `cpd-cli` will download and transfer the necessary software images for the services you are going to install/update/patch.
@@ -53,11 +54,11 @@ Notice that you can upload/download stuff from/to your pc to/from the shell. We 
 Let's declare some variable=value pairs with some of the stuff you collected in the beginning to make things easier further along the line (the variables are used in further code snippets):
 
 ```
-export namespace={{your_cpd_namespace}}
-export storageclass={{your_storage_class}}
 export myclusterdomain={{your_cluster_domain_name_here}}
-export mycpdurl={{your_cpd_url}}
+export namespace={{your_cpd_namespace}}
 export apikey={{your_api_key_here}}
+export storageclass={{your_storage_class}}
+export mycpdurl={{your_cpd_url}}
 ```
 
 ## Log in into your cluster
