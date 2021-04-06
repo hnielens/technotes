@@ -25,7 +25,7 @@ You will need the following stuff, so make sure you collect it upfront, so you c
 
 We will use `cpd-cli` to prepare, download and transfer the necessary software images for the services you are going to install/update/patch. when you choosing your "bastion node", consider that the closer it is located to your cluster, the smoother your experience will probably be.
 
-### Option 1: Use your IBM PC as a bastion
+### Option 1: Use your PC as a bastion
 #### Use your Mac
 You can use the default Terminal app (or your preferred terminal, e.g. iTerm) to run `cpd-cli`. Consider the Linux VM alternative if you encouner latency or bandwidth issues.
 
@@ -33,7 +33,7 @@ You can use the default Terminal app (or your preferred terminal, e.g. iTerm) to
 Configure and set up your Windows 10 machine for linux to run `cpd-cli`. Consider the Linux VM alternative if you encouner latency or bandwidth issues. [Use this walkthrough to set up linux on your Windows 10 machine](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
 
  ### Option 2: Provision a linux VM (or reuse an existing one)
- [How to provision a linux VM in IBM Cloud Classic Infrastructure](provision_linux_vm_in_ibm_cloud_classic_infra.md#how-to-provision-a-basic-linux-vm-in-ibm-cloud-classic-infrastructure).
+ **DRAFT** [How to provision a linux VM in IBM Cloud Classic Infrastructure](provision_linux_vm_in_ibm_cloud_classic_infra.md#how-to-provision-a-basic-linux-vm-in-ibm-cloud-classic-infrastructure).
 
 ### Can I use IBM Cloud Shell?
 IBM Cloud Shell is an in-browser shell that you can quickly start from the https://cloud.ibm.com homepage.
@@ -47,7 +47,7 @@ The advantages of using IBM Cloud Shell:
 The **dis**advantages of using IBM Cloud shell:
 
 - Your environment is recycled after an hour of inactivity, so you will need to upload/install the `cpd-cli` and set your entitlement key each time after the environment is recycled.
-- Long running scripts are killed...
+- Long running scripts are killed.
 - You can use the IBM Cloud Shell for maximum 50 hours per week.
 
 So... as the IBM Cloud Shell environment will be reset after one hour of inactivity (includes long running scripts) and long running scripts will be killed, IBM Cloud Shell is **not a good** option if you want use it as a bastion node for installation.
@@ -65,6 +65,14 @@ This is the IBM Cloud Shell welcome:
 Notice that you can upload/download stuff from/to your pc to/from the shell. We will do that in a minute.<br>
 ![](images/upload-download.png)
 
+## Download and install the prerequisite CLI
+You need to one time install;
+
+- The IBM Cloud CLI collection
+- The RedHat Openshift CLI (oc)
+
+
+
 ## Declare some variables for later use
 Let's declare some variable=value pairs with some of the stuff you collected in the beginning to make things easier further along the line (the variables are used in further code snippets):
 
@@ -75,7 +83,6 @@ export apikey={{your_api_key_here}}
 export storageclass={{your_storage_class}}
 export mycpdurl={{your_cpd_url}}
 ```
-
 ## Log in into your cluster
 You can copy the oc CLI command for logging in into your cluster from your cluster's openshift web gui.
 
@@ -88,57 +95,6 @@ oc login --token={{your_bearer_token}} --server={{your_server_naem}}
 You can set your namespace/project as the default namespace/project to test you are whether you are successfully logged in into your cluster:
 ```
 oc project $namespace # The $-sign indicates that we reference the vars we declared earlier
-```
-
-## Download, install and configure cpd-cli
-
-### Download the tarball to your pc
-
-Download the `cpd-cli` installer to your PC. As we are working in the IBM Cloud Shell you will need the latest `cpd-cli` enterprise edition version for linux. If the latest version is 3.5.3 then you download `cpd-cli-linux-EE-3.5.3.tgz`.
-
-**Note**
-Make sure to keep a copy of this tarball on your PC, as you will probably need to install it more than once. Remember: IBM Cloud Shell will reset after 60 minutes of inactivity.
-
-### Upload the tarball to your shell
-Upload the tarball to your IBM Cloud Shell environment using the upload button:</br>
-![](images/upload-download.png)
-
-### Extract the tarball
-Extract the contents of the tarball, you have uploaded to the Cloud Shell environment:
-```
-tar xvf cpd-cli-linux-EE-{{cpd-cli_version}}
-```
-### Edit and save the repo.yaml
-We need to add our license entitlement key to the `repo.yaml` file we just extracted:
-```
----
-fileservers:
-  -
-    url: "https://raw.github.com/IBM/cloud-pak/master/repo/cpd/3.5"
-registry:
-  -
-    url: cp.icr.io/cp/cpd
-    name: base-registry
-    namespace: ""
-    username: cp
-    apikey: <entitlement key>
-```
-As we will have to do this every time our shell session idles out, you might want to download the `repo.yaml` file to your PC (use the button), add the entitlement key and save a copy for upload when needed.
-
-Upload the `repo.yaml` file from your PC to the shell environment (use the button).
-
-This section discusses `cpd-cli` and `repo.yaml` in the documentation for CPD v3.5: https://www.ibm.com/docs/en/cloud-paks/cp-data/3.5.0?topic=tasks-obtaining-installation-files
-
-### Create and save a cpd-cli profile
-Finally, create a `cpd-cli` profile (needed for some actions only). This is also described in detail in the documentation:
-https://www.ibm.com/docs/en/cloud-paks/cp-data/3.5.0?topic=installing-creating-cpd-cli-profile
-
-```
-./cpd-cli config users set cpd-admin-user --username admin --apikey $apikey
-# Note that we use the $apikey value here
-
-./cpd-cli config profiles set cpd-admin-profile --user cpd-admin-user --url $mycpdurl
-# Note that we use the $mycpdurl here
 ```
 
 ## Installing, patching and upgrading new services
