@@ -42,7 +42,7 @@ As the IBM Cloud Shell environment will be reset after one hour of inactivity an
 
 It **is** a good option for simple administrative tasks.
 
-Here is a seperate technote for the ["how-to" for IBM Cloud Shell](https://github.com/hnielens/technotes/blob/main/how_to_use_ibm_cloud_shell.md#how-to-use-ibm-cloud-shell).
+Here is a seperate technote for the ["how-to" for IBM Cloud Shell](how-to-use-ibm-cloud-shell).
 
 ## Download and install the prerequisite CLI
 You need to one time install;
