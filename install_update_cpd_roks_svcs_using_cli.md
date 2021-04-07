@@ -182,11 +182,11 @@ Now we are ready to install Datastage Enterprise Plus:
 --namespace $namespace \
 --repo ./repo.yaml \
 --storageclass $storageclass \
---transfer-image-to=image-registry-openshift-image-registry.$myclusterdomain/zen \
+--transfer-image-to=image-registry-openshift-image-registry.$myclusterdomain/$namespace \
 --target-registry-username=$(oc whoami) \
 --target-registry-password=$(oc whoami -t) \
 --insecure-skip-tls-verify \
---cluster-pull-prefix=image-registry.openshift-image-registry.svc:5000/zen \
+--cluster-pull-prefix=image-registry.openshift-image-registry.svc:5000/$namespace \
 --latest-dependency \
 --accept-all-licenses \
 --dry-run
@@ -202,11 +202,11 @@ Notice that above is only the dry-run. Drop `--dryrun` to start the installation
 --namespace $namespace \
 --repo ./repo.yaml \
 --storageclass $storageclass \
---transfer-image-to=image-registry-openshift-image-registry.$myclusterdomain/zen \
+--transfer-image-to=image-registry-openshift-image-registry.$myclusterdomain/$namespa e \
 --target-registry-username=$(oc whoami) \
 --target-registry-password=$(oc whoami -t) \
 --insecure-skip-tls-verify \
---cluster-pull-prefix=image-registry.openshift-image-registry.svc:5000/zen \
+--cluster-pull-prefix=image-registry.openshift-image-registry.svc:5000/$namespace \
 --latest-dependency \
 --accept-all-licenses
 ```
