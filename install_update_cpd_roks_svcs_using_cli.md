@@ -202,7 +202,7 @@ Notice that above is only the dry-run. Drop `--dryrun` to start the installation
 --namespace $namespace \
 --repo ./repo.yaml \
 --storageclass $storageclass \
---transfer-image-to image-registry-openshift-image-registry.$myclusterdomain/$namespa e \
+--transfer-image-to image-registry-openshift-image-registry.$myclusterdomain/$namespace \
 --target-registry-username $(oc whoami) \
 --target-registry-password $(oc whoami -t) \
 --insecure-skip-tls-verify \
