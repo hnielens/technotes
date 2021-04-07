@@ -51,7 +51,48 @@ You need to one time install;
 - The RedHat Openshift CLI (oc)
 
 ``
+## Download, install and configure cpd-cli
+You need to one time install the cpd-cli on your chosen "bastion node".
 
+### Download the tarball to your pc
+Download the `cpd-cli` installer to your PC. As we are working in the IBM Cloud Shell you will need the latest `cpd-cli` enterprise edition version for linux. If the latest version is 3.5.3 then you download `cpd-cli-linux-EE-3.5.3.tgz`.
+**Note**
+Make sure to keep a copy of this tarball on your PC, as you will probably need to install it more than once. Remember: IBM Cloud Shell will reset after 60 minutes of inactivity.
+### Upload the tarball to your shell
+Upload the tarball to your IBM Cloud Shell environment using the upload button:</br>
+![](images/upload-download.png)
+### Extract the tarball
+Extract the contents of the tarball, you have uploaded to the Cloud Shell environment:
+```
+tar -zxvf cpd-cli-linux-EE-{{cpd-cli_version}}
+```
+### Edit and save the repo.yaml
+We need to add our license entitlement key to the `repo.yaml` file we just extracted:
+```
+---
+fileservers:
+  -
+    url: "https://raw.github.com/IBM/cloud-pak/master/repo/cpd/3.5"
+registry:
+  -
+    url: cp.icr.io/cp/cpd
+    name: base-registry
+    namespace: ""
+    username: cp
+    apikey: <entitlement key>
+```
+As we will have to do this every time our shell session idles out, you might want to download the `repo.yaml` file to your PC (use the button), add the entitlement key and save a copy for upload when needed.
+Upload the `repo.yaml` file from your PC to the shell environment (use the button).
+This section discusses `cpd-cli` and `repo.yaml` in the documentation for CPD v3.5: https://www.ibm.com/docs/en/cloud-paks/cp-data/3.5.0?topic=tasks-obtaining-installation-files
+### Create and save a cpd-cli profile
+Finally, create a `cpd-cli` profile (needed for some actions only). This is also described in detail in the documentation:
+https://www.ibm.com/docs/en/cloud-paks/cp-data/3.5.0?topic=installing-creating-cpd-cli-profile
+```
+./cpd-cli config users set cpd-admin-user --username admin --apikey $apikey
+# Note that we use the $apikey value here
+./cpd-cli config profiles set cpd-admin-profile --user cpd-admin-user --url $mycpdurl
+# Note that we use the $mycpdurl here
+```
 ## Declare some variables for later use
 Let's declare some variable=value pairs with some of the stuff you collected in the beginning to make things easier further along the line (the variables are used in further code snippets):
 
