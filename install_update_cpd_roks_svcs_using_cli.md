@@ -27,10 +27,10 @@ We will use `cpd-cli` to prepare, download and transfer the necessary software i
 
 ### Option 1: Use your PC as a bastion
 #### Use your Mac
-You can use the default Terminal app (or your preferred terminal, e.g. iTerm) to run `cpd-cli`. Consider the Linux VM alternative if you encouner latency or bandwidth issues.
+You can use the default Terminal app (or your preferred terminal, e.g. iTerm) to run `cpd-cli`. Consider the Linux VM alternative ([option 2](link)) if you encouner latency or bandwidth issues.
 
 #### Use your Windows 10
-Configure and set up your Windows 10 machine for linux to run `cpd-cli`. Consider the Linux VM alternative if you encouner latency or bandwidth issues. [Use this walkthrough to set up linux on your Windows 10 machine](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
+Configure and set up your Windows 10 machine for linux to run `cpd-cli`. Consider the Linux VM alternative (option 2) if you encouner latency or bandwidth issues. [Use this walkthrough to set up linux on your Windows 10 machine](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
 
  ### Option 2: Provision a linux VM (or reuse an existing one)
  **DRAFT** [How to provision a linux VM in IBM Cloud Classic Infrastructure](provision_linux_vm_in_ibm_cloud_classic_infra.md#how-to-provision-a-basic-linux-vm-in-ibm-cloud-classic-infrastructure).
