@@ -20,5 +20,5 @@ This is the IBM Cloud Shell welcome:
 
 ![IBM Cloud Shell Welcom](images/ibm_cloud_shell_welcome.png)
 
-Notice that you can upload/download stuff from/to your pc to/from the shell. We will do that in a minute.<br>
+Notice that you can upload/download stuff from/to your pc to/from the shell.<br>
 ![](images/upload-download.png)
