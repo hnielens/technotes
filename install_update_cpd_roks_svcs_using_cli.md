@@ -71,7 +71,7 @@ You need to one time install;
 - The IBM Cloud CLI collection
 - The RedHat Openshift CLI (oc)
 
-
+``
 
 ## Declare some variables for later use
 Let's declare some variable=value pairs with some of the stuff you collected in the beginning to make things easier further along the line (the variables are used in further code snippets):
