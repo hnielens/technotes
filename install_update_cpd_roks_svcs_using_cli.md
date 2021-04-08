@@ -64,7 +64,7 @@ Upload the tarball to your IBM Cloud Shell environment using the upload button:<
 ### Extract the tarball
 Extract the contents of the tarball, you have uploaded to the Cloud Shell environment:
 ```
-tar -zxvf cpd-cli-linux-EE-{{cpd-cli_version}}
+tar xvf cpd-cli-linux-EE-{{cpd-cli_version}}
 ```
 ### Edit and save the repo.yaml
 We need to add our license entitlement key to the `repo.yaml` file we just extracted:
