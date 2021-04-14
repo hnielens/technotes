@@ -2,10 +2,6 @@
 
 This document discusses how you can install extra services on top of an **existing** Cloud Pak for Data deployment that was originally installed using the [IBM Cloud Cloud Pak for Data installer](https://cloud.ibm.com/catalog/content/ibm-cp-datacore-6825cc5d-dbf8-4ba2-ad98-690e6f221701-global). I discuss installing the automated set up and installation of a ROKS cluster with Cloud Pak for Data [in my first webinar](https://ibm.box.com/s/htztaie5zno3lsbenrjgvkfjpgc93e79) in the series about this topic. Make sure you are already logged in into Box with your IBM account for this link to work.
 
-If you need a walkthrough on how to install RedHat Openshift and Cloud Pak for Data completely from scratch, please see this guide (includes automation scripts):
-
-[Install CPD 3.x on Red Hat OpenShift 4.x on VMWare or Bare Metal](https://github.com/IBM-ICP4D/cloud-pak-ocp-4#install-red-hat-openshift-4x-on-vmware-or-bare-metal).
-
 These are the steps you will need to follow:
 
 - [Make sure you have gathered the necessary info before you begin](#make-sure-you-have-gathered-the-necessary-info-before-you-begin)
@@ -14,6 +10,9 @@ These are the steps you will need to follow:
 - [Log in into your cluster](#log-in-into-your-cluster)
 - [Download, install and configure cpd-cli](#download-install-and-configure-cpd-cli)
 - [Installing, patching and upgrading new services](#installing-patching-and-upgrading-new-services)
+
+If you need a walkthrough on how to install RedHat Openshift and Cloud Pak for Data completely from scratch, please see this guide (includes automation scripts):
+[Install CPD 3.x on Red Hat OpenShift 4.x on VMWare or Bare Metal](https://github.com/IBM-ICP4D/cloud-pak-ocp-4#install-red-hat-openshift-4x-on-vmware-or-bare-metal).
 
 ## Make sure you have gathered the necessary info before you begin
 You will need the following stuff, so make sure you collect it upfront, so you can copy/paste it quickly when and where you need it further down the line:
@@ -37,14 +36,14 @@ You can use the default Terminal app (or your preferred terminal, e.g. iTerm) to
 Configure and set up your Windows 10 machine for linux to run `cpd-cli`. Consider the Linux VM alternative (([option 2](https://github.com/hnielens/technotes/blob/main/install_update_cpd_roks_svcs_using_cli.md#option-2-provision-a-linux-vm-or-reuse-an-existing-one)) if you encouner latency or bandwidth issues. [Use this walkthrough to set up linux on your Windows 10 machine](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
 
  ### Option 2: Provision a linux VM (or reuse an existing one)
-I discuss how to provision classic infrastructure linux vm my third webinar.
+I discuss how to provision classic infrastructure linux vm [in my third webinar](https://ibm.box.com/s/myo6x4mnr5ab9rtuw5qcgggy3jxak7om) in the series about CPD on ROKS. Make sure you are logged in into Box first.
 
 ### Can I use IBM Cloud Shell?
 IBM Cloud Shell is an in-browser shell that you can quickly start from the https://cloud.ibm.com homepage.
 
 In [my second webinar](https://ibm.box.com/s/aywqiv6b6xkdvp46t889onw12o4ul145) (log in into Box first) I wrongly assumed that it was possible to use IBM Cloud Shell as a bastion node.
 
-As the IBM Cloud Shell environment will be reset after one hour of inactivity and long running scripts will be killed, IBM Cloud Shell is **not a good** option if you want use it as a bastion node for installation.
+As the IBM Cloud Shell environment will be reset after one hour of inactivity and long running scripts will be killed, IBM Cloud Shell is **not a good** option for using it as a bastion node for installation.
 
 It **is** a good option for simple administrative tasks.
 
