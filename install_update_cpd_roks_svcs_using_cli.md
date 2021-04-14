@@ -1,6 +1,6 @@
 # How to use cpd-cli to install/patch/upgrade CPD services on ROKS
 
-This document discusses how you can install extra services on top of an **existing** Cloud Pak for Data deployment that was originally installed using the [IBM Cloud Cloud Pak for Data installer](https://cloud.ibm.com/catalog/content/ibm-cp-datacore-6825cc5d-dbf8-4ba2-ad98-690e6f221701-global). I discuss installing the automated set up and installation of a ROKS cluster with Cloud Pak for Data [in my first webinar](https://ibm.box.com/s/htztaie5zno3lsbenrjgvkfjpgc93e79). Make sure you are already logged in into Box with your IBM account for this link to work.
+This document discusses how you can install extra services on top of an **existing** Cloud Pak for Data deployment that was originally installed using the [IBM Cloud Cloud Pak for Data installer](https://cloud.ibm.com/catalog/content/ibm-cp-datacore-6825cc5d-dbf8-4ba2-ad98-690e6f221701-global). I discuss installing the automated set up and installation of a ROKS cluster with Cloud Pak for Data [in my first webinar](https://ibm.box.com/s/htztaie5zno3lsbenrjgvkfjpgc93e79) in the series about this topic. Make sure you are already logged in into Box with your IBM account for this link to work.
 
 If you need a walkthrough on how to install RedHat Openshift and Cloud Pak for Data completely from scratch, please follow this guide: [Install CPD 3.x on Red Hat OpenShift 4.x on VMWare or Bare Metal] (https://github.com/IBM-ICP4D/cloud-pak-ocp-4#install-red-hat-openshift-4x-on-vmware-or-bare-metal).
 
@@ -35,10 +35,12 @@ You can use the default Terminal app (or your preferred terminal, e.g. iTerm) to
 Configure and set up your Windows 10 machine for linux to run `cpd-cli`. Consider the Linux VM alternative (([option 2](https://github.com/hnielens/technotes/blob/main/install_update_cpd_roks_svcs_using_cli.md#option-2-provision-a-linux-vm-or-reuse-an-existing-one)) if you encouner latency or bandwidth issues. [Use this walkthrough to set up linux on your Windows 10 machine](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
 
  ### Option 2: Provision a linux VM (or reuse an existing one)
-I discuss how to provision classic infrastructure linux vm my third webinar. In [the second webinar]() I wrongly assumed that it was possible to use IBM Cloud Shell as a bastion node.
+I discuss how to provision classic infrastructure linux vm my third webinar.
 
 ### Can I use IBM Cloud Shell?
 IBM Cloud Shell is an in-browser shell that you can quickly start from the https://cloud.ibm.com homepage.
+
+In [my second webinar](https://ibm.box.com/s/aywqiv6b6xkdvp46t889onw12o4ul145) (log in into Box first) I wrongly assumed that it was possible to use IBM Cloud Shell as a bastion node.
 
 As the IBM Cloud Shell environment will be reset after one hour of inactivity and long running scripts will be killed, IBM Cloud Shell is **not a good** option if you want use it as a bastion node for installation.
 

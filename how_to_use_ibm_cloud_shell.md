@@ -1,6 +1,6 @@
 # How to use IBM Cloud shell
 
-I discuss using IBM Cloud shell [in this webinar](https://ibm.box.com/s/aywqiv6b6xkdvp46t889onw12o4ul145) (log in into Box first).
+I discuss using IBM Cloud shell [in this webinar](https://ibm.box.com/s/aywqiv6b6xkdvp46t889onw12o4ul145) (log in into Box with your IBM account first).
 
 The advantages of using IBM Cloud Shell:
 
