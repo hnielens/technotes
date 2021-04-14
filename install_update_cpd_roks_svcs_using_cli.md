@@ -69,31 +69,37 @@ curl -sL https://ibm.biz/idt-installer | bash
 ```
 
 ### Install the Redhat Openshift CLI (oc)
-Download the Openshift client that matches the version of your cluster. You can find and copy the download link for the specific version via a browser on your PC by following this link (for OpenShift 4.6): https://mirror.openshift.com/pub/openshift-v4/clients/oc/
+Download the Openshift client that matches the version of your cluster. You can find and copy the download link for the specific version via a browser on your PC by following this link (for OpenShift 4.6): https://mirror.openshift.com/pub/openshift-v4/clients/oc/latest/
 
 Copy the url for "your" `oc.tar.gz` (in Chrome: right-click and choose `copy link address` as shown below):
 
 ![Download "your" oc.tar.gz](images/download_oc.png)
 
-Finally, untar the tarball and copy oc to /usr/bin/local.
+Finally, untar the tarball and copy `oc` to /usr/bin/local.
 
 ```
-tar cvf oc.tar.gz
+tar xvf oc.tar.gz
 cp oc /usr/local/bin
 ```
 
 You will also need the Kubernetes CLI (`kubectl`), but that already has been installed if you have set up the IBM Cloud CLIs and tools as described above.
 
 ## Download, install and configure cpd-cli
-You need to one time install the cpd-cli on your chosen "bastion node".
+You need to install the cpd-cli on your chosen "bastion node".
 
 ### Download the tarball to your pc
-Download the `cpd-cli` installer to your PC. As we are working in the IBM Cloud Shell you will need the latest `cpd-cli` enterprise edition version for linux. If the latest version is 3.5.3 then you download `cpd-cli-linux-EE-3.5.3.tgz`.
-**Note**
-Make sure to keep a copy of this tarball on your PC, as you will probably need to install it more than once. Remember: IBM Cloud Shell will reset after 60 minutes of inactivity.
+Download the `cpd-cli` installer to a directory of choice on your bastion.
+
+The cpd-cli releases for CPD 3.5 can be downloaded here: https://github.com/IBM/cpd-cli/releases. We need the EE (Enterprise Editionn version). The versions for Mac are indictated with `Darwin`.
+
+
+
+`cpd-cli-linux-EE-3.5.3.tgz`.
+
 ### Upload the tarball to your shell
 Upload the tarball to your IBM Cloud Shell environment using the upload button:</br>
 ![](images/upload-download.png)
+
 ### Extract the tarball
 Extract the contents of the tarball, you have uploaded to the Cloud Shell environment:
 ```
