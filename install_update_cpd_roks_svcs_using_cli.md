@@ -107,7 +107,7 @@ wget {{the_link_you_just_copied_for_cpd-cli}}
 ```
 
 ### Extract the tarball
-Extract the contents of the tarball, you have uploaded to the Cloud Shell environment:
+Extract the contents of the tarball.
 ```
 tar xvf cpd-cli-{{linux_or_darwin}}-EE-{{cpd-cli_version}}
 ```
@@ -126,20 +126,33 @@ registry:
     username: cp
     apikey: <entitlement key>
 ```
-As we will have to do this every time our shell session idles out, you might want to download the `repo.yaml` file to your PC (use the button), add the entitlement key and save a copy for upload when needed.
-Upload the `repo.yaml` file from your PC to the shell environment (use the button).
 This section discusses `cpd-cli` and `repo.yaml` in the documentation for CPD v3.5: https://www.ibm.com/docs/en/cloud-paks/cp-data/3.5.0?topic=tasks-obtaining-installation-files
+
 ### Create and save a cpd-cli profile
 Finally, create a `cpd-cli` profile (needed for some actions only). This is also described in detail in the documentation:
 https://www.ibm.com/docs/en/cloud-paks/cp-data/3.5.0?topic=installing-creating-cpd-cli-profile
 ```
-./cpd-cli config users set cpd-admin-user --username admin --apikey $apikey
 # Note that we use the $apikey value here
-./cpd-cli config profiles set cpd-admin-profile --user cpd-admin-user --url $mycpdurl
+./cpd-cli config users set cpd-admin-user --username admin --apikey $apikey
+
 # Note that we use the $mycpdurl here
+./cpd-cli config profiles set cpd-admin-profile --user cpd-admin-user --url $mycpdurl
 ```
-## Declare some variables for later use
-Let's declare some variable=value pairs with some of the stuff you collected in the beginning to make things easier further along the line (the variables are used in further code snippets):
+## Installing, patching and upgrading new services
+
+Take some time to read about the general process of installing, upgrading and patching the CPD control plane and services in the documentation: https://www.ibm.com/docs/en/cloud-paks/cp-data/3.5.0?topic=installing
+
+**Note**
+As this text is for Cloud Pak for Data on ROKS, we follow the steps for a cluster that has Internet connection (not "airgapped").
+
+Installing, upgrading and patching involves a little dance that is the same for each service.
+- Log in into your cluster
+- Prepare the cluster to install the service
+- Install the service
+- Check for patches
+- Set up instances if applicable
+
+Let's first declare some variable=value pairs with some of the stuff you collected in the beginning, so you just can just easily copy and paste the code snippets further down in this text.
 
 ```
 export myclusterdomain={{your_cluster_domain_name_here}}
@@ -148,7 +161,7 @@ export apikey={{your_api_key_here}}
 export storageclass={{your_storage_class}}
 export mycpdurl={{your_cpd_url}}
 ```
-## Log in into your cluster
+### Log in into your cluster
 You can copy the oc CLI command for logging in into your cluster from your cluster's openshift web gui.
 
 ![Copy CLI Login Command](images/oc_login.png)
@@ -157,30 +170,26 @@ Run the login command in the shell:
 ```
 oc login --token={{your_bearer_token}} --server={{your_server_name}}
 ```
-You can set your namespace/project as the default namespace/project to test you are whether you are successfully logged in into your cluster:
+**Note**
+If you have username/password errors while trying to access your target registry during an installation go through this step again as your token may have expired.
+
+You can set your namespace/project as the default namespace/project to test whether you are successfully logged in into your cluster or not:
 ```
 oc project $namespace # The $-sign indicates that we reference the vars we declared earlier
 ```
 
-## Installing, patching and upgrading new services
+### Prepare the cluster
+Let's install the Datastage Enterprise Plus service.
 
-Take some time to read about the general process of installing, upgrading and patching the CPD control plane and services in the documentation:
-
-Installing, upgrading and patching involve a little dance that is the same for each service
-
-- Prepare the cluster to install the service? Be attentive to specific requirments for databases from the Db2 family.
-- Install the service
-- Check for patches
-- Set up instances if applicable
-
-Let's install the Datastage Enterprise Plus service. Note that the code snippets below can be used for any service thanks to the variables we declared in the beginning.
+**Note**
+- The code snippets below can be used for any service thanks to the variables we declared in the beginning
+- Some services have some extra steps to prepare a node or the cluster. Be attentive for specific requirements around databases from the Db2 family.
 
 The documentation describes the process for Datstage Enterprise Plus (and for the other services) in detail: https://www.ibm.com/docs/en/cloud-paks/cp-data/3.5.0?topic=plus-setting-up-cluster-datastage-enterprise.
 
-### Prepare
+Technically the software package for a service is a number of modules bundled in an **assembly**. The assembly name you need to use is mentioned in the installation documentation for the specific service. A more detailed technical list of all assemblies and modules for CPD 3.x can be found here: https://github.com/IBM/cloud-pak/tree/master/repo/cpd3. The assembly name for Datastage Enterprise Plus is `ds`.
 
-First declare the service you want to install. Technically the software for a service is a number of modules bundled in an **assembly**. The assembly name you need to use is mentioned in the installation documentation for the specific service. A more detailed technical list of all assemblies and modules for CPD 3.x can be found here: https://github.com/IBM/cloud-pak/tree/master/repo/cpd3. The assembly name for Datastage Enterprise Plus is `ds`.
-
+If you want to use the code snippets in thist text export the assembly name for the service you want to install/patch/upgrade. Do not forget to do this every time you want to install/patch/upgrade another service.
 ```
 export assembly=ds
 ```
@@ -188,7 +197,7 @@ export assembly=ds
 **Note**
 A client can choose to buy Datastage Enterprise or Datastage Enterprise Plus. The service name for Datastage Enterprise is `ds-ent`. The service name for Datastage Enterprise Plus is `ds`.
 
-Run the script that will prepare the cluster by doing some checks and adding stuff like new roles:
+Run the script that will prepare the cluster by doing some checks and adding stuff like new service accounts and profiles:
 
 ```
 # Note that we use the $assembly and $namespace values here
@@ -215,7 +224,7 @@ Check the results. You will see that the script was not really executed but just
 --apply
 ```
 
-### Install
+### Install the services
 
 Now we are ready to install Datastage Enterprise Plus:
 
@@ -237,7 +246,7 @@ Now we are ready to install Datastage Enterprise Plus:
 --dry-run
 ```
 
-Notice that above is only the dry-run. Drop `--dryrun` to start the installation for real:
+Notice that above is only the dry-run. Drop `--dry-run` to start the installation for real:
 
 ```
 # Note that we use the $assembly, $namespace, $storageclass and $myclusterdomain values here
@@ -256,7 +265,7 @@ Notice that above is only the dry-run. Drop `--dryrun` to start the installation
 --accept-all-licenses
 ```
 
-### Patch
+### Check for patches
 
 Available patches:
 https://www.ibm.com/docs/en/cloud-paks/cp-data/3.5.0?topic=patches-available
