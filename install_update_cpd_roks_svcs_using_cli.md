@@ -71,14 +71,18 @@ curl -sL https://ibm.biz/idt-installer | bash
 ### Install the Redhat Openshift CLI (oc)
 Download the Openshift client that matches the version of your cluster. You can find and copy the download link for the specific version via a browser on your PC by following this link (for OpenShift 4.6): https://mirror.openshift.com/pub/openshift-v4/clients/oc/latest/
 
-Copy the url for "your" `oc.tar.gz` (in Chrome: right-click and choose `copy link address` as shown below):
+If you have a linux bastion node, copy the url for "your" `oc.tar.gz` (in Chrome: right-click and choose `copy link address` as shown below). On Mac you can just download the tarball using your browser.
 
-![Download "your" oc.tar.gz](images/download_oc.png)
+![coppy "your" oc.tar.gz](images/download_oc.png)
 
-Download and untar the tarball, and copy `oc` to /usr/bin/local (see: [The Linux Directory Structure Explained](https://www.howtogeek.com/117435/htg-explains-the-linux-directory-structure-explained/)). We use the popular `wget` command to download the tarball from the link we just copied. Alternatively, you can use cURL if you prefer.
+On linux we can use the popular `wget` command to download the tarball from the link we just copied. Alternatively, you can use cURL if you prefer.
+```
+wget {{the_link_you_just_copied}}
+```
+
+Untar the tarball, and copy `oc` to /usr/bin/local (see: [The Linux Directory Structure Explained](https://www.howtogeek.com/117435/htg-explains-the-linux-directory-structure-explained/)). On linux bastion nodes, we
 
 ```
-wget {{the_download_url_you_just_copied}}
 tar xvf oc.tar.gz
 cp oc /usr/local/bin
 ```
@@ -88,18 +92,13 @@ You will also need the Kubernetes CLI (`kubectl`), but that one already has been
 ## Download, install and configure cpd-cli
 You need to install the cpd-cli on your chosen "bastion node".
 
-### Download the tarball to your pc
-Download the `cpd-cli` installer to a directory of choice on your bastion.
+### Download the cpd-cli tarball
 
-The cpd-cli releases for CPD 3.5 can be downloaded here: https://github.com/IBM/cpd-cli/releases. We need the EE (Enterprise Editionn version). The versions for Mac are indictated with `Darwin`.
+The cpd-cli releases for CPD 3.5 can be downloaded here: https://github.com/IBM/cpd-cli/releases. We need the EE (Enterprise Editionn version).
 
+If you are on Mac just download the version using your browser (e.g. get `cpd-cli-darwin-EE-3.x.x.tar.gz`, note that the versions for Mac are indictated with `Darwin`).
 
-
-`cpd-cli-linux-EE-3.5.3.tgz`.
-
-### Upload the tarball to your shell
-Upload the tarball to your IBM Cloud Shell environment using the upload button:</br>
-![](images/upload-download.png)
+If your are on Linux copy the download link as discusse in
 
 ### Extract the tarball
 Extract the contents of the tarball, you have uploaded to the Cloud Shell environment:
