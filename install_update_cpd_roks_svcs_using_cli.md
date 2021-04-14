@@ -146,13 +146,13 @@ Take some time to read about the general process of installing, upgrading and pa
 As this text is for Cloud Pak for Data on ROKS, we follow the steps for a cluster that has Internet connection (not "airgapped").
 
 Installing, upgrading and patching involves a little dance that is the same for each service.
-- Log in into your cluster
-- Prepare the cluster to install the service
-- Install the service
-- Check for patches
-- Set up instances if applicable
+- [Log in into your cluster]
+- [Prepare the cluster to install the service]
+- [Install the service]
+- [Check for patches an upgrades]
+- [Set up instances if applicable]
 
-Let's first declare some variable=value pairs with some of the stuff you collected in the beginning, so you just can just easily copy and paste the code snippets further down in this text.
+But first, let's delare some variable=value pairs with the stuff you collected in the beginning, so you just can just easily copy and paste the code snippets further down in this text.
 
 ```
 export myclusterdomain={{your_cluster_domain_name_here}}
@@ -265,10 +265,21 @@ Notice that above is only the dry-run. Drop `--dry-run` to start the installatio
 --accept-all-licenses
 ```
 
-### Check for patches
+**Note**
+Even if the installation script has finished, it might be that the installation is still in progress (pods pending etc...), so you may want to verify the status of the service:
 
-Available patches:
+```
+./cpd-cli status \
+--assembly $assembly \
+--namespace $namespace
+```
+
+### Check for patches and upgrades
+
+Read here about the avaialble patches and when you will need them:
 https://www.ibm.com/docs/en/cloud-paks/cp-data/3.5.0?topic=patches-available
+
+Check for patches and upgrades for given service:
 
 ./cpd-cli status \
 --repo ./repo.yaml \
@@ -277,14 +288,6 @@ https://www.ibm.com/docs/en/cloud-paks/cp-data/3.5.0?topic=patches-available
 --patches \
 --available-updates
 
-./cpd-cli patch \
---repo ./repo.yaml \
---assembly $assembly \
---namespace $namespace \
---patch-name $patchname\
---transfer-image-to image-registry-openshift-image-registry.$myclusterdomain/$namespace \
---cluster-pull-prefix image-registry.openshift-image-registry.svc:5000/$namespace \
---target-registry-username $(oc whoami) \
---target-registry-password $(oc whoami -t) \
---action transfer \
---dry-run
+### Set up instances if applicable
+
+_WIP_
