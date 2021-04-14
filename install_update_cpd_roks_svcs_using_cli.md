@@ -75,14 +75,15 @@ Copy the url for "your" `oc.tar.gz` (in Chrome: right-click and choose `copy lin
 
 ![Download "your" oc.tar.gz](images/download_oc.png)
 
-Finally, untar the tarball and copy `oc` to /usr/bin/local.
+Download and untar the tarball, and copy `oc` to /usr/bin/local (see: [The Linux Directory Structure Explained](https://www.howtogeek.com/117435/htg-explains-the-linux-directory-structure-explained/)). We use the popular `wget` command to download the tarball from the link we just copied. Alternatively, you can use cURL if you prefer.
 
 ```
+wget {{the_download_url_you_just_copied}}
 tar xvf oc.tar.gz
 cp oc /usr/local/bin
 ```
 
-You will also need the Kubernetes CLI (`kubectl`), but that already has been installed if you have set up the IBM Cloud CLIs and tools as described above.
+You will also need the Kubernetes CLI (`kubectl`), but that one already has been installed if you have set up the IBM Cloud CLIs and tools [as described earlier](#install-the-redhat-openshift-cli-oc).
 
 ## Download, install and configure cpd-cli
 You need to install the cpd-cli on your chosen "bastion node".
