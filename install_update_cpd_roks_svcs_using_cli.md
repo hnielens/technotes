@@ -6,8 +6,7 @@ These are the steps you will need to follow:
 
 - [Make sure you have gathered the necessary info before you begin](#make-sure-you-have-gathered-the-necessary-info-before-you-begin)
 - [Choose a "computer" to install from (aka a bastion node)](#choose-a-computer-to-install-from-aka-a-bastion-node)
-- [Declare some variables for later use](#declare-some-variables-for-later-use)
-- [Log in into your cluster](#log-in-into-your-cluster)
+- [Download and install the prerequisite CLIs](#download-and-install-the-prerequisite-clis)
 - [Download, install and configure cpd-cli](#download-install-and-configure-cpd-cli)
 - [Installing, patching and upgrading new services](#installing-patching-and-upgrading-new-services)
 
