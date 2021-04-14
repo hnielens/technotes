@@ -1,5 +1,7 @@
 # How to use IBM Cloud shell
 
+I discuss using IBM Cloud shell [in this webinar](https://ibm.box.com/s/aywqiv6b6xkdvp46t889onw12o4ul145) (log in into Box first).
+
 The advantages of using IBM Cloud Shell:
 
 - You can choose to run the Shell in the specific region in which you have set up your cluster.
