@@ -100,7 +100,7 @@ The cpd-cli releases for CPD 3.5 can be downloaded here: https://github.com/IBM/
 
 If you are on Mac just download the version using your browser (e.g. get `cpd-cli-darwin-EE-3.x.x.tar.gz`, note that the versions for Mac are indictated with `Darwin`).
 
-If your are on Linux copy the download link as discussed earlier and use `wget` to download the tarball.
+If your are on Linux copy the download link [as discussed earlier](#install-the-redhat-openshift-cli-oc) for `oc` and use `wget` to download the tarball.
 
 wget {{the_link_you_just_copied_for_cpd-cli}}
 
