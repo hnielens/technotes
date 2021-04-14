@@ -144,6 +144,10 @@ Take some time to read about the general process of installing, upgrading and pa
 **Note**
 As this text is for Cloud Pak for Data on ROKS, we follow the steps for a cluster that has Internet connection (not "airgapped").
 
+**Tip**
+An installation can take quite some time and you want to avoid problems because of lost connections or your PC going to sleep or loosing the connection with the bastion. On external linux bastion you can use the screen utility which allows reconnecting to your session even if your connnection was interrupted:
+https://linuxize.com/post/how-to-use-linux-screen/
+
 Installing, upgrading and patching involves a little dance that is the same for each service.
 - [Log in into your cluster](#log-in-into-your-cluster)
 - [Prepare the cluster before installing the service](#prepare-the-cluster-before-installing-the-service)
