@@ -1,8 +1,10 @@
 # How to use cpd-cli to install/patch/upgrade CPD services on ROKS
 
-This document discusses how you can install extra services on top of an **existing** Cloud Pak for Data deployment that was originally installed using the [IBM Cloud Cloud Pak for Data installer](https://cloud.ibm.com/catalog/content/ibm-cp-datacore-6825cc5d-dbf8-4ba2-ad98-690e6f221701-global).
+This document discusses how you can install extra services on top of an **existing** Cloud Pak for Data deployment that was originally installed using the [IBM Cloud Cloud Pak for Data installer](https://cloud.ibm.com/catalog/content/ibm-cp-datacore-6825cc5d-dbf8-4ba2-ad98-690e6f221701-global). I discuss installing the automated set up and installation of a ROKS cluster with Cloud Pak for Data [in my first webinar](https://ibm.box.com/s/htztaie5zno3lsbenrjgvkfjpgc93e79). Make sure you are already logged in into Box with your IBM account for this link to work.
 
-If you need a walkthrough on how to install RedHat Openshift and Cloud Pak for Data completely from scratch, please follow this guide: [Install CPD 3.x on Red Hat OpenShift 4.x on VMWare or Bare Metal] (https://github.com/IBM-ICP4D/cloud-pak-ocp-4#install-red-hat-openshift-4x-on-vmware-or-bare-metal)
+If you need a walkthrough on how to install RedHat Openshift and Cloud Pak for Data completely from scratch, please follow this guide: [Install CPD 3.x on Red Hat OpenShift 4.x on VMWare or Bare Metal] (https://github.com/IBM-ICP4D/cloud-pak-ocp-4#install-red-hat-openshift-4x-on-vmware-or-bare-metal).
+
+These are the steps you will need to follow:
 
 - [Make sure you have gathered the necessary info before you begin](#make-sure-you-have-gathered-the-necessary-info-before-you-begin)
 - [Choose a "computer" to install from (aka a bastion node)](#choose-a-computer-to-install-from-aka-a-bastion-node)
@@ -44,13 +46,29 @@ It **is** a good option for simple administrative tasks.
 
 Here is a seperate technote for the ["how-to" for IBM Cloud Shell](how-to-use-ibm-cloud-shell).
 
-## Download and install the prerequisite CLI
-You need to one time install;
+## Download and install the prerequisite CLIs
+On your chosen bastion "computer" you will need to one time install following prerequiste CLIs as indicated in the "Access" section in the detail page for your ROKS cluster: https://cloud.ibm.com/kubernetes/clusters.
 
-- The IBM Cloud CLI collection
+![ROKS Cluster Access Section](images/roks_cluster_access_section.png)
+
+- The IBM Cloud CLI collection and tools
 - The RedHat Openshift CLI (oc)
 
-``
+### Install the IBM Cloud CLI collection and tools
+Make or choose a folder where you can download stuff and make sure it is your "present working dirctory".
+
+This command will downlaod and isntall the IBM Cloud CLI collection and tools:
+```
+curl -sL https://ibm.biz/idt-installer | bash
+```
+
+### Install the Redhat Openshift CLI (oc)
+Download the Openshift client that matches the version of your cluster. You can find and copy the download link for the specific version via a browser on your PC by following this link (for OpenShift 4.6): https://mirror.openshift.com/pub/openshift-v4/clients/oc/
+
+Copy the url for "your" `oc.tar.gz` (in Chrome: right-click and choose `copy link address` as shown below):
+
+![Download "your" oc.tar.gz](images/download_oc.png)
+
 ## Download, install and configure cpd-cli
 You need to one time install the cpd-cli on your chosen "bastion node".
 
@@ -110,7 +128,7 @@ You can copy the oc CLI command for logging in into your cluster from your clust
 
 Run the login command in the shell:
 ```
-oc login --token={{your_bearer_token}} --server={{your_server_naem}}
+oc login --token={{your_bearer_token}} --server={{your_server_name}}
 ```
 You can set your namespace/project as the default namespace/project to test you are whether you are successfully logged in into your cluster:
 ```
@@ -130,11 +148,11 @@ Installing, upgrading and patching involve a little dance that is the same for e
 
 Let's install the Datastage Enterprise Plus service. Note that the code snippets below can be used for any service thanks to the variables we declared in the beginning.
 
-The documentation describes the process for Datstage Enterprise Plus (and for the other services) in detail: https://www.ibm.com/docs/en/cloud-paks/cp-data/3.5.0?topic=plus-setting-up-cluster-datastage-enterprise
+The documentation describes the process for Datstage Enterprise Plus (and for the other services) in detail: https://www.ibm.com/docs/en/cloud-paks/cp-data/3.5.0?topic=plus-setting-up-cluster-datastage-enterprise.
 
 ### Prepare
 
-First declare the service you want to install. The service name is mentioned in the installation documentation for the specific service. For Datastage Enterprise Plus the service name is `ds`.
+First declare the service you want to install. Technically the software for a service is a number of modules bundled in an **assembly**. The assembly name you need to use is mentioned in the installation documentation for the specific service. A more detailed technical list of all assemblies and modules for CPD 3.x can be found here: https://github.com/IBM/cloud-pak/tree/master/repo/cpd3. The assembly name for Datastage Enterprise Plus is `ds`.
 
 ```
 export assembly=ds
@@ -213,4 +231,24 @@ Notice that above is only the dry-run. Drop `--dryrun` to start the installation
 
 ### Patch
 
-TBD
+Available patches:
+https://www.ibm.com/docs/en/cloud-paks/cp-data/3.5.0?topic=patches-available
+
+./cpd-cli status \
+--repo ./repo.yaml \
+--namespace $namespace \
+--assembly $assembly \
+--patches \
+--available-updates
+
+./cpd-cli patch \
+--repo ./repo.yaml \
+--assembly $assembly \
+--namespace $namespace \
+--patch-name $patchname\
+--transfer-image-to image-registry-openshift-image-registry.$myclusterdomain/$namespace \
+--cluster-pull-prefix image-registry.openshift-image-registry.svc:5000/$namespace \
+--target-registry-username $(oc whoami) \
+--target-registry-password $(oc whoami -t) \
+--action transfer \
+--dry-run
