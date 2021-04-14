@@ -146,8 +146,8 @@ As this text is for Cloud Pak for Data on ROKS, we follow the steps for a cluste
 
 Installing, upgrading and patching involves a little dance that is the same for each service.
 - [Log in into your cluster](#log-in-into-your-cluster)
-- [Prepare the cluster to install the service](#prepare-the-cluster)
-- [Install the service](install-the-service)
+- [Prepare the cluster before installing the service](#prepare-the-cluster-before-installing-the-service)
+- [Install the service](#install-the-service)
 - [Check for patches an upgrades](#check-for-patches-and-upgrades)
 - [Set up instances if applicable](#set-up-instances-if-applicable)
 
@@ -177,7 +177,7 @@ You can set your namespace/project as the default namespace/project to test whet
 oc project $namespace # The $-sign indicates that we reference the vars we declared earlier
 ```
 
-### Prepare the cluster
+### Prepare the cluster before installing the service
 Let's install the Datastage Enterprise Plus service.
 
 **Note**
