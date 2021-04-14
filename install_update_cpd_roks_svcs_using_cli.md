@@ -54,13 +54,15 @@ On your chosen bastion "computer" you will need to one time install following pr
 
 ![ROKS Cluster Access Section](images/roks_cluster_access_section.png)
 
-
 These are the prerequisite CLIs:
 
 - [The IBM Cloud CLI collection and tools](#install-the-ibm-cloud-cli-collection-and-tools)
 - [The RedHat Openshift CLI (oc)](#install-the-redhat-openshift-cli-oc)
 
+I discuss the download and installation of the prerequisite CLIs in [in my third webinar](https://ibm.box.com/s/myo6x4mnr5ab9rtuw5qcgggy3jxak7om) as of time 59:06.
+
 ### Install the IBM Cloud CLI collection and tools
+
 Make or choose a folder where you can download stuff and make sure it is your "present working directory".
 
 This command will download and install the IBM Cloud CLI collection and tools:
@@ -71,13 +73,13 @@ curl -sL https://ibm.biz/idt-installer | bash
 ### Install the Redhat Openshift CLI (oc)
 Download the Openshift client that matches the version of your cluster. You can find and copy the download link for the specific version via a browser on your PC by following this link (for OpenShift 4.6): https://mirror.openshift.com/pub/openshift-v4/clients/oc/latest/
 
-If you have a linux bastion node, copy the url for "your" `oc.tar.gz` (in Chrome: right-click and choose `copy link address` as shown below). On Mac you can just download the tarball using your browser.
+On Mac you can just download the tarball using your browser. If you have a linux bastion node, copy the url for "your" `oc.tar.gz` (in Chrome: right-click and choose `copy link address` as shown below).
 
 ![coppy "your" oc.tar.gz](images/download_oc.png)
 
 On linux we can use the popular `wget` command to download the tarball from the link we just copied. Alternatively, you can use cURL if you prefer.
 ```
-wget {{the_link_you_just_copied}}
+wget {{the_link_you_just_copied_for_the_oc}}
 ```
 
 Untar the tarball, and copy `oc` to /usr/bin/local (see: [The Linux Directory Structure Explained](https://www.howtogeek.com/117435/htg-explains-the-linux-directory-structure-explained/)). On linux bastion nodes, we
@@ -90,7 +92,7 @@ cp oc /usr/local/bin
 You will also need the Kubernetes CLI (`kubectl`), but that one already has been installed if you have set up the IBM Cloud CLIs and tools [as described earlier](#install-the-redhat-openshift-cli-oc).
 
 ## Download, install and configure cpd-cli
-You need to install the cpd-cli on your chosen "bastion node".
+You need to install the cpd-cli on your chosen "bastion node". I discuss this in my second webinar beginning from time 35:47. And I repeat this in [in my third webinar](https://ibm.box.com/s/myo6x4mnr5ab9rtuw5qcgggy3jxak7om) webinar as of time 1:08:30.
 
 ### Download the cpd-cli tarball
 
@@ -98,12 +100,14 @@ The cpd-cli releases for CPD 3.5 can be downloaded here: https://github.com/IBM/
 
 If you are on Mac just download the version using your browser (e.g. get `cpd-cli-darwin-EE-3.x.x.tar.gz`, note that the versions for Mac are indictated with `Darwin`).
 
-If your are on Linux copy the download link as discusse in
+If your are on Linux copy the download link as discussed earlier and use `wget` to download the tarball.
+
+wget {{the_link_you_just_copied_for_cpd-cli}}
 
 ### Extract the tarball
 Extract the contents of the tarball, you have uploaded to the Cloud Shell environment:
 ```
-tar xvf cpd-cli-linux-EE-{{cpd-cli_version}}
+tar xvf cpd-cli-{{linux_or_darwin}}-EE-{{cpd-cli_version}}
 ```
 ### Edit and save the repo.yaml
 We need to add our license entitlement key to the `repo.yaml` file we just extracted:
