@@ -146,11 +146,11 @@ Take some time to read about the general process of installing, upgrading and pa
 As this text is for Cloud Pak for Data on ROKS, we follow the steps for a cluster that has Internet connection (not "airgapped").
 
 Installing, upgrading and patching involves a little dance that is the same for each service.
-- [Log in into your cluster]
-- [Prepare the cluster to install the service]
-- [Install the service]
-- [Check for patches an upgrades]
-- [Set up instances if applicable]
+- [Log in into your cluster](#log-in-into-your-cluster)
+- [Prepare the cluster to install the service](#prepare-the-cluster)
+- [Install the service](install-the-service)
+- [Check for patches an upgrades](#check-for-patches-and-upgrades)
+- [Set up instances if applicable](#set-up-instances-if-applicable)
 
 But first, let's delare some variable=value pairs with the stuff you collected in the beginning, so you just can just easily copy and paste the code snippets further down in this text.
 
@@ -224,7 +224,7 @@ Check the results. You will see that the script was not really executed but just
 --apply
 ```
 
-### Install the services
+### Install the service
 
 Now we are ready to install Datastage Enterprise Plus:
 
