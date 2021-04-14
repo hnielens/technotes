@@ -35,7 +35,7 @@ You can use the default Terminal app (or your preferred terminal, e.g. iTerm) to
 Configure and set up your Windows 10 machine for linux to run `cpd-cli`. Consider the Linux VM alternative (([option 2](https://github.com/hnielens/technotes/blob/main/install_update_cpd_roks_svcs_using_cli.md#option-2-provision-a-linux-vm-or-reuse-an-existing-one)) if you encouner latency or bandwidth issues. [Use this walkthrough to set up linux on your Windows 10 machine](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
 
  ### Option 2: Provision a linux VM (or reuse an existing one)
- **DRAFT** [How to provision a linux VM in IBM Cloud Classic Infrastructure](provision_linux_vm_in_ibm_cloud_classic_infra.md#how-to-provision-a-basic-linux-vm-in-ibm-cloud-classic-infrastructure).
+I discuss how to provision classic infrastructure linux vm my third webinar. In [the second webinar]() I wrongly assumed that it was possible to use IBM Cloud Shell as a bastion node.
 
 ### Can I use IBM Cloud Shell?
 IBM Cloud Shell is an in-browser shell that you can quickly start from the https://cloud.ibm.com homepage.
@@ -44,7 +44,7 @@ As the IBM Cloud Shell environment will be reset after one hour of inactivity an
 
 It **is** a good option for simple administrative tasks.
 
-Here is a seperate technote for the ["how-to" for IBM Cloud Shell](how-to-use-ibm-cloud-shell).
+Here is a seperate technote for the ["how-to" for IBM Cloud Shell](how-to-use-ibm-cloud-shell) which also refers to my first webinar.
 
 ## Download and install the prerequisite CLIs
 On your chosen bastion "computer" you will need to one time install following prerequiste CLIs as indicated in the "Access" section in the detail page for your ROKS cluster: https://cloud.ibm.com/kubernetes/clusters.
@@ -55,9 +55,9 @@ On your chosen bastion "computer" you will need to one time install following pr
 - The RedHat Openshift CLI (oc)
 
 ### Install the IBM Cloud CLI collection and tools
-Make or choose a folder where you can download stuff and make sure it is your "present working dirctory".
+Make or choose a folder where you can download stuff and make sure it is your "present working directory".
 
-This command will downlaod and isntall the IBM Cloud CLI collection and tools:
+This command will download and install the IBM Cloud CLI collection and tools:
 ```
 curl -sL https://ibm.biz/idt-installer | bash
 ```
@@ -68,6 +68,15 @@ Download the Openshift client that matches the version of your cluster. You can 
 Copy the url for "your" `oc.tar.gz` (in Chrome: right-click and choose `copy link address` as shown below):
 
 ![Download "your" oc.tar.gz](images/download_oc.png)
+
+Finally, untar the tarball and copy oc to /usr/bin/local.
+
+```
+tar cvf oc.tar.gz
+cp oc /usr/local/bin
+```
+
+You will also need the Kubernetes CLI (`kubectl`), but that already has been installed if you have set up the IBM Cloud CLIs and tools as described above.
 
 ## Download, install and configure cpd-cli
 You need to one time install the cpd-cli on your chosen "bastion node".
