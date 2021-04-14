@@ -36,7 +36,7 @@ You can use the default Terminal app (or your preferred terminal, e.g. iTerm) to
 Configure and set up your Windows 10 machine for linux to run `cpd-cli`. Consider the Linux VM alternative (([option 2](https://github.com/hnielens/technotes/blob/main/install_update_cpd_roks_svcs_using_cli.md#option-2-provision-a-linux-vm-or-reuse-an-existing-one)) if you encouner latency or bandwidth issues. [Use this walkthrough to set up linux on your Windows 10 machine](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
 
  ### Option 2: Provision a linux VM (or reuse an existing one)
-I discuss how to provision classic infrastructure linux vm [in my third webinar](https://ibm.box.com/s/myo6x4mnr5ab9rtuw5qcgggy3jxak7om) in the series about CPD on ROKS. Make sure you are logged in into Box first.
+I discuss how to provision classic infrastructure linux virtual machine [in my third webinar](https://ibm.box.com/s/myo6x4mnr5ab9rtuw5qcgggy3jxak7om) from the series about CPD on ROKS. Make sure you are logged in into Box first.
 
 ### Can I use IBM Cloud Shell?
 IBM Cloud Shell is an in-browser shell that you can quickly start from the https://cloud.ibm.com homepage.
@@ -54,8 +54,11 @@ On your chosen bastion "computer" you will need to one time install following pr
 
 ![ROKS Cluster Access Section](images/roks_cluster_access_section.png)
 
-- The IBM Cloud CLI collection and tools
-- The RedHat Openshift CLI (oc)
+
+These are the prerequisite CLIs:
+
+- [The IBM Cloud CLI collection and tools](#install-the-ibm-cloud-cli-collection-and-tools)
+- [The RedHat Openshift CLI (oc)](#install-the-redhat-openshift-cli-oc)
 
 ### Install the IBM Cloud CLI collection and tools
 Make or choose a folder where you can download stuff and make sure it is your "present working directory".
