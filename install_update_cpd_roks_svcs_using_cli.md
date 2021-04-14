@@ -102,7 +102,9 @@ If you are on Mac just download the version using your browser (e.g. get `cpd-cl
 
 If your are on Linux copy the download link [as discussed earlier](#install-the-redhat-openshift-cli-oc) for `oc` and use `wget` to download the tarball.
 
+```
 wget {{the_link_you_just_copied_for_cpd-cli}}
+```
 
 ### Extract the tarball
 Extract the contents of the tarball, you have uploaded to the Cloud Shell environment:
