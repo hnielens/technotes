@@ -46,7 +46,7 @@ As the IBM Cloud Shell environment will be reset after one hour of inactivity an
 
 It **is** a good option for simple administrative tasks.
 
-Here is a seperate technote for the ["how-to" for IBM Cloud Shell](how-to-use-ibm-cloud-shell.md).
+Here is a seperate technote for the ["how-to" for IBM Cloud Shell](how_to_use_ibm_cloud_shell.md#how-to-use-ibm-cloud-shell).
 
 ## Download and install the prerequisite CLIs
 On your chosen bastion "computer" you will need to one time install following prerequiste CLIs as indicated in the "Access" section in the detail page for your ROKS cluster: https://cloud.ibm.com/kubernetes/clusters.
@@ -81,7 +81,7 @@ On linux we can use the popular `wget` command to download the tarball from the 
 wget {{the_link_you_just_copied_for_the_oc}}
 ```
 
-Untar the tarball, and copy `oc` to /usr/bin/local (see: [The Linux Directory Structure Explained](https://www.howtogeek.com/117435/htg-explains-the-linux-directory-structure-explained/)). On linux bastion nodes, we
+Untar the tarball, and copy `oc` to /usr/bin/local (see: [The Linux Directory Structure Explained](https://www.howtogeek.com/117435/htg-explains-the-linux-directory-structure-explained/)).
 
 ```
 tar xvf oc.tar.gz
