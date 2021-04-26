@@ -295,7 +295,7 @@ Check for patches and upgrades for given service:
 
 ### Patch existing services
 
-If the [previously discussed check](#previously_discussed_check) for patches and updates indicates you need a patch, you should first check the documentation of the patch to decide whether or not you need the patch. All patch related documentation for CPD 3.5 can be found here.
+If the [previously discussed check](#previously_discussed_check) for patches & updates, and the documentation indicates you need a patch, execute the named_patch.
 
 ### Upgrade existing services
 As we use the `--latest-dependency` flag during [installation of services](#install_the_service) the check for patches and upgrades will most probably not indicate you need to upgrade the service. After a while an upgrade might have come along, though. So here is how you can upgrade a service. Note that if the service has instance(s) you will also have to update the instances of the service.
