@@ -295,12 +295,12 @@ Check for patches and upgrades for given service:
 
 ### Patch existing services
 
-If the [previously discussed check](#check_for_patches_and_upgrades) for patches & updates, and the documentation indicates you need a patch, execute the named_patch.
+If the [previously discussed check](#check-for-patches-and-upgrades) for patches & updates, and the documentation indicates you need a patch, execute the named_patch.
 
 ### Upgrade existing services
-As we use the `--latest-dependency` flag during [installation of services](#install_the_service) the check for patches and upgrades will most probably not indicate you need to upgrade the service. After a while an upgrade might have come along, though. So here is how you can upgrade a service. Note that if the service has instance(s) you will also have to update the instances of the service.
+As we use the `--latest-dependency` flag during [installation of services](#install-the-service) the check for patches and upgrades will most probably not indicate you need to upgrade the service. After a while an upgrade might have come along, though. So here is how you can upgrade a service. Note that if the service has instance(s) you will also have to update the instances of the service.
 
-Before upgrading the service you will have to run the [preparation](#prepare_the_cluster_before_installing_the_service) again:
+Before upgrading the service you will have to run the [preparation](#prepare-the-cluster-before-installing-the-service) again:
 
 ```
 # Note that we use the $assembly and $namespace values here
