@@ -334,5 +334,3 @@ Then you can run the upgrade code:
 ### Set up instances if applicable
 
 _WIP_
-
-###
