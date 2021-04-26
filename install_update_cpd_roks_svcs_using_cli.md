@@ -284,12 +284,14 @@ https://www.ibm.com/docs/en/cloud-paks/cp-data/3.5.0?topic=patches-available
 
 Check for patches and upgrades for given service:
 
+```
 ./cpd-cli status \
 --repo ./repo.yaml \
 --namespace $namespace \
 --assembly $assembly \
 --patches \
 --available-updates
+```
 
 ### Set up instances if applicable
 
