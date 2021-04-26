@@ -293,6 +293,46 @@ Check for patches and upgrades for given service:
 --available-updates
 ```
 
+### Patch existing services
+
+If the [previously discussed check](#previously_discussed_check) for patches and updates indicates you need a patch, you should first check the documentation of the patch to decide whether or not you need the patch. All patch related documentation for CPD 3.5 can be found here.
+
+### Upgrade existing services
+As we use the `--latest-dependency` flag during [installation of services](#install_the_service) the check for patches and upgrades will most probably not indicate you need to upgrade the service. After a while an upgrade might have come along, though. So here is how you can upgrade a service. Note that if the service has instance(s) you will also have to update the instances of the service.
+
+Before upgrading the service you will have to run the [preparation](#prepare_the_cluster_before_installing_the_service) again:
+
+```
+# Note that we use the $assembly and $namespace values here
+
+./cpd-cli adm \
+--repo ./repo.yaml \
+--assembly $assembly \
+--namespace $namespace \
+--latest-dependency \
+--accept-all-licenses \
+# --apply #add the apply flag if you want to apply the prep for real
+```
+
+Then you can run the upgrade code:
+
+./cpd-cli install \
+--assembly $assembly \
+--namespace $namespace \
+--repo ./repo.yaml \
+--storageclass $storageclass \
+--transfer-image-to image-registry-openshift-image-registry.$myclusterdomain/$namespace \
+--target-registry-username $(oc whoami) \
+--target-registry-password $(oc whoami -t) \
+--insecure-skip-tls-verify \
+--cluster-pull-prefix image-registry.openshift-image-registry.svc:5000/$namespace \
+--latest-dependency \
+--accept-all-licenses \
+--dry-run       #remove this flag to upgrade for real
+```
+
 ### Set up instances if applicable
 
 _WIP_
+
+###
