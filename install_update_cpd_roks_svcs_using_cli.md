@@ -295,7 +295,7 @@ Check for patches and upgrades for given service:
 
 ### Patch existing services
 
-If the [previously discussed check](#previously_discussed_check) for patches & updates, and the documentation indicates you need a patch, execute the named_patch.
+If the [previously discussed check](#check_for_patches_and_upgrades) for patches & updates, and the documentation indicates you need a patch, execute the named_patch.
 
 ### Upgrade existing services
 As we use the `--latest-dependency` flag during [installation of services](#install_the_service) the check for patches and upgrades will most probably not indicate you need to upgrade the service. After a while an upgrade might have come along, though. So here is how you can upgrade a service. Note that if the service has instance(s) you will also have to update the instances of the service.
@@ -311,7 +311,7 @@ Before upgrading the service you will have to run the [preparation](#prepare_the
 --namespace $namespace \
 --latest-dependency \
 --accept-all-licenses \
-# --apply #add the apply flag if you want to apply the prep for real
+# --apply       #add the apply flag if you want to apply the prep for real
 ```
 
 Then you can run the upgrade code:
