@@ -321,7 +321,6 @@ Then you can run the upgrade code:
 --assembly $assembly \
 --namespace $namespace \
 --repo ./repo.yaml \
---storageclass $storageclass \
 --transfer-image-to image-registry-openshift-image-registry.$myclusterdomain/$namespace \
 --target-registry-username $(oc whoami) \
 --target-registry-password $(oc whoami -t) \
