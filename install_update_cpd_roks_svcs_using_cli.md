@@ -317,7 +317,7 @@ Before upgrading the service you will have to run the [preparation](#prepare-the
 Then you can run the upgrade code:
 
 ```
-./cpd-cli install \
+./cpd-cli upgrade \
 --assembly $assembly \
 --namespace $namespace \
 --repo ./repo.yaml \
