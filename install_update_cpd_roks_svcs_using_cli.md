@@ -81,7 +81,7 @@ On linux we can use the popular `wget` command to download the tarball from the 
 wget {{the_link_you_just_copied_for_the_oc}}
 ```
 
-Untar the tarball, and copy `oc` to /usr/bin/local (see: [The Linux Directory Structure Explained](https://www.howtogeek.com/117435/htg-explains-the-linux-directory-structure-explained/)).
+Untar the tarball, and copy `oc` to `/usr/local/bin` (see: [The Linux Directory Structure Explained](https://www.howtogeek.com/117435/htg-explains-the-linux-directory-structure-explained/)).
 
 ```
 tar xvf oc.tar.gz
