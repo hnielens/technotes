@@ -85,7 +85,7 @@ Untar the tarball, and copy `oc` to `/usr/local/bin` (see: [The Linux Directory 
 
 ```
 tar xvf oc.tar.gz
-cp oc /usr/local/bin
+cp oc /usr/local/bin/.
 ```
 
 You will also need the Kubernetes CLI (`kubectl`), but that one already has been installed if you have set up the IBM Cloud CLIs and tools [as described earlier](#install-the-redhat-openshift-cli-oc).
