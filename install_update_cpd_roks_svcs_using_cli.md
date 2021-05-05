@@ -335,4 +335,4 @@ Then you can run the upgrade code:
 
 Folow the documentation to deploy instances for applicable services (e.g. Db2, Cognos Analytics...).
 
-In [my fourth webinar](https://ibm.box.com/s/ektjmidh2csm1jzptz9ezf4nxyqhwpmh), I demonstrate how to deploy a Db2 database (instance) on a dedicated node following the documentation: https://www.ibm.com/docs/en/cloud-paks/cp-data/3.5.0?topic=db2-creating-database-deployment on your ROKS based cluster.
+In [my fourth webinar](https://ibm.box.com/s/ektjmidh2csm1jzptz9ezf4nxyqhwpmh), I demonstrate how to deploy a Db2 database (instance) on a dedicated node on your ROKS based cluster following the documentation: https://www.ibm.com/docs/en/cloud-paks/cp-data/3.5.0?topic=db2-creating-database-deployment.
