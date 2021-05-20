@@ -10,8 +10,8 @@
 ### Install ibmcloud cli
 - Get and install available updates
 ```
-yum update
-yum upgrade
+dnf update
+dnf upgrade
 ```
 - Get and install the ibmcloud cli
 ```
@@ -52,16 +52,16 @@ Note that in this section we only make sure the 64bit X11 config is working corr
 https://www.businessnewsdaily.com/11035-how-to-use-x11-forwarding.html
 - Check the `/etc/ssh/sshd_config` file
 - Make sure e.g. xauth is installed
-`yum update`
-`yum install xauth`
+`dnf update`
+`dnf install xauth`
 - Optionally test with xeyes. First make sure you ssh-ed in into your server with the -Y handle and you did not get specific errors.
-`yum update`
-`yum install xeyes`
+`dnf update`
+`dnf install xeyes`
 `xeyes`
 
 ## Set up Apache Directory Server
 - Install java
-`yum install java`
+`dnf install java`
 - Get the latest download link for the 64bit binary installer for Apache DS
 http://directory.apache.org/apacheds/download/download-linux-bin.html
 - Download and run the binary installer (in a well chosen directory)
