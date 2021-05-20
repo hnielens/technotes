@@ -15,7 +15,7 @@ yum upgrade
 ```
 - Get and install the ibmcloud cli
 ```
-curl -fsSL https://clis.cloud.ibm.com/install/linux | sh
+curl -sL https://ibm.biz/idt-installer | bash
 ```
 
 ### Install Docker CE for CentOS
