@@ -9,10 +9,14 @@
 
 ### Install ibmcloud cli
 - Get and install available updates
-`yum update`
-`yum upgrade`
+```
+yum update
+yum upgrade
+```
 - Get and install the ibmcloud cli
-`curl -fsSL https://clis.cloud.ibm.com/install/linux | sh`
+```
+curl -fsSL https://clis.cloud.ibm.com/install/linux | sh
+```
 
 ### Install Docker CE for CentOS
 https://docs.docker.com/v17.09/engine/installation/linux/docker-ce/centos/
