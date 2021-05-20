@@ -18,24 +18,33 @@ yum upgrade
 curl -sL https://ibm.biz/idt-installer | bash
 ```
 
-### Install Docker CE for CentOS
-https://docs.docker.com/v17.09/engine/installation/linux/docker-ce/centos/
-
 ### Set up Cloud Object Storage plugin
 **Note** that you only need this step when you have uploaded the Cognos software to a COS service
 https://cloud.ibm.com/docs/cloud-object-storage-cli-plugin?topic=cloud-object-storage-cli-ic-cos-cli
 - Log in to ibmcloud
-`ibmcloud login -sso`
+```
+ibmcloud login -sso
+```
 - Install the cos plugin
-`ibmcloud plugin install cloud-object-storage`
+```
+ibmcloud plugin install cloud-object-storage
+```
 - Configure cos with the bucket's crn (found in the bucket properties)
-`ibmcloud cos config crn`
+```
+ibmcloud cos config crn
+```
 - Configure the hmac authentication using credentials (access_key_id/secret_access_key) generated for the cos service
-`ibmcloud cos config hmac`
+```
+ibmcloud cos config hmac
+```
 - Make sure hmac is the default active authentication method
-`ibmcloud cos config auth`
+```
+ibmcloud cos config auth
+```
 - Configure where downloaded files will land (your default download folder)
-`ibmcloud cos config ddl`
+```
+ibmcloud cos config ddl
+```
 
 
 ### Set up and test X11 forwarding
