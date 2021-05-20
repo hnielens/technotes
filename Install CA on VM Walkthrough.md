@@ -1,4 +1,4 @@
-# Set up an IBM Cloud VM for CA 11.1.4 walkthrough
+# Set up an IBM Cloud CentOS 8 VM for CA 11.2 walkthrough
 
 ## Order a server
 
