@@ -50,14 +50,20 @@ ibmcloud cos config ddl
 ### Set up and test X11 forwarding
 Note that in this section we only make sure the 64bit X11 config is working correctly. We will set up the 32bit side of things later in the section where we are going to install Cognos components with the 32bit installer. This document might help for configuring x11.
 https://www.businessnewsdaily.com/11035-how-to-use-x11-forwarding.html
-- Check the `/etc/ssh/sshd_config` file
+
 - Make sure e.g. xauth is installed
-`dnf update`
-`dnf install xauth`
-- Optionally test with xeyes. First make sure you ssh-ed in into your server with the -Y handle and you did not get specific errors.
-`dnf update`
-`dnf install xeyes`
-`xeyes`
+```
+dnf update
+dnf install xauth
+```
+- Optionally test whether your X-term works with xeyes. First make sure you ssh-ed in into your server with the -Y handle and you did not get specific errors. You might need to add and enable the epel and CentOS powertools software repositories before you can install the x-tools...
+```
+dnf update
+dnf install xeyes
+xeyes
+```
+
+- Check the `/etc/ssh/sshd_config` file
 
 ## Set up Apache Directory Server
 - Install java
