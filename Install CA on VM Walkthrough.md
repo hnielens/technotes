@@ -102,10 +102,11 @@ https://hub.docker.com/
 - Here is an example command to build and run the container
 ```
 docker run -itd \
-           --name mydb2 \
+           --name my-db2 \
            --privileged=true \
            --restart=unless-stopped \
            -p 50000:50000 \
+           -p 55000:55000 \
            -e LICENSE=accept \
            -e DB2INST1_PASSWORD={{choose_pw_for_db2inst1}} \
            -e SAMPLEDB=false \
