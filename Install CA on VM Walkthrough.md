@@ -94,44 +94,24 @@ https://hub.docker.com/
 - On Docker Hub Look for Db2 Developer-C, add to basket and check out
 - In your _My Content_ (in your account) look for Db2 Developer-C and _Setup_ for instructions on how to get and deploy the Db2 container.
 
-Depending on published conformance you could use v11.1.4.4 (legcy) or v11.5 (current).
-
-### Db2 Developer Edition v11.1.4.4 (legacy)
-- Pull the docker image from Docker Hub:
-`docker pull store/ibmcorp/db2_developer_c:11.1.4.4-x86_64`
-- Make sure you create a Db2 data folder on your hostname for persisting the db data, e.g.:
-`mkdir /root/db2data`
-- Make sure that you have a customised `.env_lis` as described as in the setup instructions, e.g.:
-`vi /root/config/.db2_env_list`
-Example Env:
-```
-LICENSE=accept
-DB2INSTANCE=db2inst1
-DB2INST1_PASSWORD=password
-DBNAME=
-BLU=false
-ENABLE_ORACLE_COMPATIBILITY=false
-UPDATEAVAIL=NO
-TO_CREATE_SAMPLEDB=false
-REPODB=false
-IS_OSXFS=false
-PERSISTENT_HOME=true
-HADR_ENABLED=false
-ETCD_ENDPOINT=
-ETCD_USERNAME=
-ETCD_PASSWORD=
-```
-- Here is an example command to run the  container
-`docker run -h db2server --name db2server --restart=always --detach --privileged=true -p 50000:50000 -p 55000:55000 --env-file /root/config/.db2_env_list -v /root/db2data/:/database store/ibmcorp/db2_developer_c:11.1.4.4-x86_64`
-~~
-
 ### Db2 Developer Edition v11.5 (current)
 - Pull the docker image from Docker Hub:
 `docker pull ibmcom/db2`
 - Make sure you create a Db2 data folder on your hostname for persisting the db data, e.g.:
 `mkdir /root/db2data`
 - Here is an example command to build and run the container
-`docker run -itd --name mydb2 --privileged=true --restart=unless-stopped -p 50000:50000 -e LICENSE=accept -e DB2INST1_PASSWORD=_choose_pw_for_db2inst1_ -e SAMPLEDB=false -v /root/db2data:/database ibmcom/db2`
+```
+docker run -itd \
+           --name mydb2 \
+           --privileged=true \
+           --restart=unless-stopped \
+           -p 50000:50000 \
+           -e LICENSE=accept \
+           -e DB2INST1_PASSWORD=_choose_pw_for_db2inst1_ \
+           -e SAMPLEDB=false \
+           -v /root/db2data:/database \
+           ibmcom/db2
+```
 
 ## Install and Configure Cognos Analytics
 ### Get the software and install
