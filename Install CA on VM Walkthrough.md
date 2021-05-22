@@ -132,32 +132,17 @@ Launching installer...
 
 
 Graphical installers are not supported by the VM. The console mode will be used instead...
-
-===============================================================================
-Choose Locale...
-----------------
-
-    1- Dansk
-    2- Deutsch
-  ->3- English
-    4- Español
-    5- Français
-    6- Italiano
-    7- Nederlands
-    8- Português  (Brasil)
-    9- Suomi
-   10- Svenska
-
-CHOOSE LOCALE BY NUMBER:
 ```
--
 - Make sure you have the installation files on your system, e.g. by getting them from your cloud object storage bucket
 `ibmcloud login --sso`
 `ibmcloud cos download -bucket bucket_name_here -key file_name_here`
 - Install Cognos Analytics using the installer and the payload zip
 - Do not forget to put the Db2 JDBC driver files in the `../drivers` folder, you can find them in the Db2 container. Try something like this:
-`docker exec -ti db2server bash -c "cp /database/config/db2inst1/sqllib/java/db2jcc* /database/."`
-`cp /root/db2data/db2jcc* /opt/ibm/cognos/analytics/drivers/.`
+
+```
+docker exec -ti my-db2 bash -c "cp /database/config/db2inst1/sqllib/java/db2jcc* /database/."`
+`cp /root/db2data/db2jcc* /opt/ibm/cognos/analytics/drivers/.
+```
 
 ### Configure Cognos Analytics
 Use cogconfig.sh to configure the Cognos Analytics deployment
