@@ -113,9 +113,44 @@ docker run -itd \
            -v /root/db2data:/database \
            ibmcom/db2
 ```
+**Note**
+
+The db2inst1 password will expire as per the specific security configuration in the docker container's os. When the password has expired you will need to connect to the container to change the password.
 
 ## Install and Configure Cognos Analytics
 ### Get the software and install
+- Make sure you check the prerequisite libraries/tools before you start the installation: https://www.ibm.com/software/reports/compatibility/clarity. Otherwise you might bump into this kind of error when trying to run the installer:
+```
+[root@ca112 downloads]# ./ca_instl_lnxi38664_3.2.29.bin
+Preparing to install
+Extracting the JRE from the installer archive...
+Unpacking the JRE...
+Extracting the installation resources from the installer archive...
+Configuring the installer for this system's environment...
+
+Launching installer...
+
+
+Graphical installers are not supported by the VM. The console mode will be used instead...
+
+===============================================================================
+Choose Locale...
+----------------
+
+    1- Dansk
+    2- Deutsch
+  ->3- English
+    4- Español
+    5- Français
+    6- Italiano
+    7- Nederlands
+    8- Português  (Brasil)
+    9- Suomi
+   10- Svenska
+
+CHOOSE LOCALE BY NUMBER:
+```
+-
 - Make sure you have the installation files on your system, e.g. by getting them from your cloud object storage bucket
 `ibmcloud login --sso`
 `ibmcloud cos download -bucket bucket_name_here -key file_name_here`
