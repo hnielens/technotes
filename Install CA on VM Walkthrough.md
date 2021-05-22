@@ -147,17 +147,23 @@ rm /root/db2data/db2jcc*
 
 ### Configure Cognos Analytics
 Use cogconfig.sh to configure the Cognos Analytics deployment
-`/opt/ibm/cognos/analytics/bin64/cogconfig.sh`
+```
+/opt/ibm/cognos/analytics/bin64/cogconfig.sh
+```
 - Change hostname and full qualified domain name mentions to the host ip
 - Configure the content store to point to point to a database running in the Db2 container
 - Generate DDL for the database you configured in the previous bullet
 - Make sure to switch the _Report Server execution mode_ parameter to _64-bit_ (under _Environment_), otherwise you will need to get 32-bit libraries installed on CentOS.
 - Save the configuration but do not start Cognos yet
 - Create the cognos repository db in the containered Db2 instance by using the ddl script you create earlier:
-`cp /opt/ibm/cognos/analytics/configuration/schemas/content/db2/createDb.sql /root/db2data/.
-docker exec -ti db2server basch -c "su - db2inst1"`
+```
+cp /opt/ibm/cognos/analytics/configuration/schemas/content/db2/createDb.sql /root/db2data/.
+docker exec -ti db2server basch -c "su - db2inst1"
+```
 on the container cmd line run:
-`db2 -tvmf /database/createDb.sql`
+```
+db2 -tvmf /database/createDb.sql
+```
 - Now use Cognos Configuration to test the repository db and try and start Cognos
 - Configure a new generic ldap authentication namespace for the Apache Directory Server instance you installed and set up earlier
 
