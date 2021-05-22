@@ -137,10 +137,13 @@ Graphical installers are not supported by the VM. The console mode will be used 
 `ibmcloud login --sso`
 `ibmcloud cos download -bucket bucket_name_here -key file_name_here`
 - Install Cognos Analytics using the installer and the payload zip
-- Do not forget to put the Db2 JDBC driver files in the `../drivers` folder, you can find them in the Db2 container. Try something like this:
+- Do not forget to put the Db2 JDBC driver files in the `../drivers` folder, you can find them in the Db2 container.
 
 ```
 docker exec -ti my-db2 bash -c "cp /database/config/db2inst1/sqllib/java/db2jcc* /database/."
+```
+
+```
 cp /root/db2data/db2jcc* /opt/ibm/cognos/analytics/drivers/.
 rm /root/db2data/db2jcc*
 ```
@@ -164,10 +167,9 @@ on the container cmd line run:
 ```
 db2 -tvmf /database/createDb.sql
 ```
-```
 - Clean up:
+```
 rm /root/db2data/createDb.sql
-
 ```
 - Now use Cognos Configuration to test the repository db and try and start Cognos
 - Configure a new generic ldap authentication namespace for the Apache Directory Server instance you installed and set up earlier
