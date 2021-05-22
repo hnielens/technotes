@@ -158,11 +158,16 @@ Use cogconfig.sh to configure the Cognos Analytics deployment
 - Create the cognos repository db in the containered Db2 instance by using the ddl script you create earlier:
 ```
 cp /opt/ibm/cognos/analytics/configuration/schemas/content/db2/createDb.sql /root/db2data/.
-docker exec -ti my-db2 basch -c "su - db2inst1"
+docker exec -ti my-db2 bash -c "su - db2inst1"
 ```
 on the container cmd line run:
 ```
 db2 -tvmf /database/createDb.sql
+```
+```
+- Clean up:
+rm /root/db2data/createDb.sql
+
 ```
 - Now use Cognos Configuration to test the repository db and try and start Cognos
 - Configure a new generic ldap authentication namespace for the Apache Directory Server instance you installed and set up earlier
