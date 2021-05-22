@@ -107,7 +107,7 @@ docker run -itd \
            --restart=unless-stopped \
            -p 50000:50000 \
            -e LICENSE=accept \
-           -e DB2INST1_PASSWORD=_choose_pw_for_db2inst1_ \
+           -e DB2INST1_PASSWORD={{choose_pw_for_db2inst1}} \
            -e SAMPLEDB=false \
            -v /root/db2data:/database \
            ibmcom/db2
