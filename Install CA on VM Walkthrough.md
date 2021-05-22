@@ -140,8 +140,8 @@ Graphical installers are not supported by the VM. The console mode will be used 
 - Do not forget to put the Db2 JDBC driver files in the `../drivers` folder, you can find them in the Db2 container. Try something like this:
 
 ```
-docker exec -ti my-db2 bash -c "cp /database/config/db2inst1/sqllib/java/db2jcc* /database/."`
-`cp /root/db2data/db2jcc* /opt/ibm/cognos/analytics/drivers/.
+docker exec -ti my-db2 bash -c "cp /database/config/db2inst1/sqllib/java/db2jcc* /database/."
+cp /root/db2data/db2jcc* /opt/ibm/cognos/analytics/drivers/.
 ```
 
 ### Configure Cognos Analytics
