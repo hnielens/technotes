@@ -142,6 +142,7 @@ Graphical installers are not supported by the VM. The console mode will be used 
 ```
 docker exec -ti my-db2 bash -c "cp /database/config/db2inst1/sqllib/java/db2jcc* /database/."
 cp /root/db2data/db2jcc* /opt/ibm/cognos/analytics/drivers/.
+rm /root/db2data/db2jcc*
 ```
 
 ### Configure Cognos Analytics
