@@ -219,8 +219,10 @@ Notice that we set the ChrootDirectory to match the home directory of each respe
 ### Make the CA deployment directory accessible to the SFTP users
 
 - Change the ownership and permissions of the folder:
-`chown root:sftpusers /opt/ibm/cognos/analytics/deployment`
-`chmod 775 /opt/ibm/cognos/analytics/deployment`
+```
+chown root:sftpusers /opt/ibm/cognos/analytics/deployment
+chmod 765 /opt/ibm/cognos/analytics/deployment
+```
 
 ## Configuring Cognos Jupyter Notebooks
 
