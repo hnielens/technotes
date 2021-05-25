@@ -221,7 +221,7 @@ Notice that we set the ChrootDirectory to match the home directory of each respe
 - Change the ownership and permissions of the folder:
 ```
 chown root:sftpusers /opt/ibm/cognos/analytics/deployment
-chmod 765 /opt/ibm/cognos/analytics/deployment
+chmod 755 /opt/ibm/cognos/analytics/deployment
 ```
 
 ## Configuring Cognos Jupyter Notebooks
