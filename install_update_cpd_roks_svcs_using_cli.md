@@ -1,5 +1,33 @@
 # How to use cpd-cli to install/patch/upgrade CPD services on ROKS
 
+**Table of Contents**
+<!-- TOC -->
+
+  - [Make sure you have gathered the necessary info before you begin](#make-sure-you-have-gathered-the-necessary-info-before-you-begin)
+  - [Choose a "computer" to install from (aka a bastion node)](#choose-a-computer-to-install-from-aka-a-bastion-node)
+    - [Option 1: Use your PC as a bastion](#option-1-use-your-pc-as-a-bastion)
+      - [Use your Mac](#use-your-mac)
+      - [Use your Windows 10](#use-your-windows-10)
+    - [Can I use IBM Cloud Shell?](#can-i-use-ibm-cloud-shell)
+  - [Download and install the prerequisite CLIs](#download-and-install-the-prerequisite-clis)
+    - [Install the IBM Cloud CLI collection and tools](#install-the-ibm-cloud-cli-collection-and-tools)
+    - [Install the Redhat Openshift CLI (oc)](#install-the-redhat-openshift-cli-oc)
+  - [Download, install and configure cpd-cli](#download-install-and-configure-cpd-cli)
+    - [Download the cpd-cli tarball](#download-the-cpd-cli-tarball)
+    - [Extract the tarball](#extract-the-tarball)
+    - [Edit and save the repo.yaml](#edit-and-save-the-repoyaml)
+    - [Create and save a cpd-cli profile](#create-and-save-a-cpd-cli-profile)
+  - [Installing, patching and upgrading new services](#installing-patching-and-upgrading-new-services)
+    - [Log in into your cluster](#log-in-into-your-cluster)
+    - [Prepare the cluster before installing the service](#prepare-the-cluster-before-installing-the-service)
+    - [Install the service](#install-the-service)
+    - [Check for patches and upgrades](#check-for-patches-and-upgrades)
+    - [Patch existing services](#patch-existing-services)
+    - [Upgrade existing services](#upgrade-existing-services)
+    - [Set up instances if applicable](#set-up-instances-if-applicable)
+
+<!-- /TOC -->
+
 This document discusses how you can install extra services on top of an **existing** Cloud Pak for Data 3.5 deployment that was originally installed using the [IBM Cloud Cloud Pak for Data installer](https://cloud.ibm.com/catalog/content/ibm-cp-datacore-6825cc5d-dbf8-4ba2-ad98-690e6f221701-global). I discuss installing the automated set up and installation of a ROKS cluster with Cloud Pak for Data [in my first webinar](https://ibm.box.com/s/htztaie5zno3lsbenrjgvkfjpgc93e79) in the series about this topic. Make sure you are already logged in into Box with your IBM account for this link to work.
 
 These are the steps you will need to follow:
