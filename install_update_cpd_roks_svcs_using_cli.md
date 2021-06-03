@@ -2,11 +2,13 @@
 
 <!-- TOC -->
 
+
   - [Make sure you have gathered the necessary info before you begin](#make-sure-you-have-gathered-the-necessary-info-before-you-begin)
   - [Choose a "computer" to install from (aka a bastion node)](#choose-a-computer-to-install-from-aka-a-bastion-node)
     - [Option 1: Use your PC as a bastion](#option-1-use-your-pc-as-a-bastion)
       - [Use your Mac](#use-your-mac)
       - [Use your Windows 10](#use-your-windows-10)
+    - [Option 2: Provision a linux VM (or reuse an existing one)](#option-2-provision-a-linux-vm-or-reuse-an-existing-one)
     - [Can I use IBM Cloud Shell?](#can-i-use-ibm-cloud-shell)
   - [Download and install the prerequisite CLIs](#download-and-install-the-prerequisite-clis)
     - [Install the IBM Cloud CLI collection and tools](#install-the-ibm-cloud-cli-collection-and-tools)
@@ -61,7 +63,7 @@ You can use the default Terminal app (or your preferred terminal, e.g. iTerm) to
 #### Use your Windows 10
 Configure and set up your Windows 10 machine for linux to run `cpd-cli`. Consider the Linux VM alternative ([option 2](https://github.com/hnielens/technotes/blob/main/install_update_cpd_roks_svcs_using_cli.md#option-2-provision-a-linux-vm-or-reuse-an-existing-one)) if you encounter latency or bandwidth issues. [Use this walkthrough to set up linux on your Windows 10 machine](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
 
- ### Option 2: Provision a linux VM (or reuse an existing one)
+### Option 2: Provision a linux VM (or reuse an existing one)
 I discuss how to provision classic infrastructure linux virtual machine [in my third webinar](https://ibm.box.com/s/myo6x4mnr5ab9rtuw5qcgggy3jxak7om) from the series about CPD on ROKS. Make sure you are logged in into Box first.
 
 ### Can I use IBM Cloud Shell?
