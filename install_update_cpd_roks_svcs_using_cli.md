@@ -124,7 +124,7 @@ You need to install the cpd-cli on your chosen "bastion node". I discuss this in
 
 ### Download the cpd-cli tarball
 
-The cpd-cli releases for CPD 3.5 can be downloaded here: https://github.com/IBM/cpd-cli/releases. We need the EE (Enterprise Editionn version).
+The cpd-cli releases for CPD 3.5 can be downloaded here: https://github.com/IBM/cpd-cli/releases. We need the EE (Enterprise Edition version).
 
 If you are on Mac just download the version using your browser (e.g. get `cpd-cli-darwin-EE-3.x.x.tar.gz`, note that the versions for Mac are indictated with `Darwin`).
 
