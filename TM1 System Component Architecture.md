@@ -9,6 +9,8 @@ Note
 `HTTPPortNumber` <br>
 `IPAddressV4` or `IPAddressV6` (and `IPVersion`) <br>
 `UseSSL` <br>
+`DataBseDirectory`
+
 
 ## Install and Configure PA Administration Agent
 https://www.ibm.com/docs/en/planning-analytics/2.0.0?topic=idt-install-configure-planning-analytics-administration-agent-local-only
