@@ -1,4 +1,20 @@
-## Start and stop Planning Analytics TM1 Services on Linux
+## The tm1s.cfg configuration file
+https://www.ibm.com/docs/en/planning-analytics/2.0.0?topic=local-tm1scfg-configuration-file
+
+Note
+
+`AdminHost`
+`RunningInBackground`
+`PortNumber`
+`HTTPPortNumber`
+`IPAddressV4` or `IPAddressV6` (and `IPVersion`)
+`UseSSL`
+
+## Install and Configure PA Administration Agent
+https://www.ibm.com/docs/en/planning-analytics/2.0.0?topic=idt-install-configure-planning-analytics-administration-agent-local-only
+
+
+## Start and stop Planning Analytics TM1 services on Linux
 
 Start Admin Server
 ```
@@ -10,7 +26,7 @@ Start a TM1 Server manually:
 {{install_dir}}/bin64/startup_tm1s.sh ../samples/tm1/PlanSamp
 ```
 
-Stop a server manually
+Stop a TM1 Server manually
 ```
 {{install_dir}}/bin64/tm1srvstop.exe -n "Planning Sample" -v 10.68.178.33 -user admin -pwd apple
 ```
@@ -30,7 +46,7 @@ Stop the PA Administration Agent
 {{install_dir}}/paa_agent/bin/shutdown_agent.sh
 ```
 
-## Show PA TM1 Related Processes
+## Show PA TM1 related processes
 
 Show all PA TM1 processes
 ```
