@@ -69,3 +69,8 @@ Show the processes related to PA TM1 Server
 ps -ef | grep tm1s.exe | grep -v grep
 
 ```
+
+## Connecting from Cognos Analytics to TM1
+https://www.ibm.com/support/pages/node/295051
+
+## Connecting from CA to TM1 using SSL
