@@ -190,6 +190,7 @@ https://www.vultr.com/docs/setup-sftp-only-user-accounts-on-centos-7
 `Subsystem sftp /usr/libexec/openssh/sftp-server`
 and replace it with (or comment it and add):
 `Subsystem sftp internal-sftp`
+- Make sure `PasswordAuthentication` is enabled
 - At the bottom of the file add following directives
 `Match Group sftpusers`
 `X11Forwarding no`
