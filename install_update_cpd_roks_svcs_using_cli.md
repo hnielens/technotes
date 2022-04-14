@@ -110,11 +110,11 @@ On linux we can use the popular `wget` command to download the tarball from the 
 wget {{the_link_you_just_copied_for_the_oc}}
 ```
 
-Untar the tarball, and copy `oc` and `kubectl` to `/usr/local/bin` (see: [The Linux Directory Structure Explained](https://www.howtogeek.com/117435/htg-explains-the-linux-directory-structure-explained/)).
+Untar the tarball, and copy (if you are not root you will need to use sudo) `oc` and `kubectl` to `/usr/local/bin` (see: [The Linux Directory Structure Explained](https://www.howtogeek.com/117435/htg-explains-the-linux-directory-structure-explained/)).
 
 ```
 tar xvf oc.tar.gz
-cp oc kubctl /usr/local/bin/.
+sudo cp oc kubctl /usr/local/bin/.
 ```
 
 You will also need the Kubernetes CLI (`kubectl`), but that one already has been installed if you have set up the IBM Cloud CLIs and tools [as described earlier](#install-the-redhat-openshift-cli-oc).
