@@ -187,7 +187,7 @@ https://www.vultr.com/docs/setup-sftp-only-user-accounts-on-centos-7
 `cp /etc/ssh/sshd_config /etc/ssh/sshd_config._backup_suffix`
 `vi /etc/ssh/sshd_config`
 - replace the SFTP subsystem:
--
+
 ```
 # Subsystem sftp  /usr/libexec/openssh/sftp-server
 Subsystem  sftp internal-sftp
