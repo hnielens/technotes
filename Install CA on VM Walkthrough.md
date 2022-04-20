@@ -192,11 +192,13 @@ and replace it with (or comment it and add):
 `Subsystem sftp internal-sftp`
 - Make sure `PasswordAuthentication` is enabled
 - At the bottom of the file add following directives
-`Match Group sftpusers`
-`X11Forwarding no`
-`AllowTcpForwarding no`
-`ChrootDirectory %h`
-`ForceCommand internal-sftp`
+```
+Match Group sftpusers
+X11Forwarding no
+AllowTcpForwarding no
+ChrootDirectory %h
+ForceCommand internal-sftp
+```
 Notice that we set the ChrootDirectory to match the home directory of each respective SFTP user (`%h`)
 - Restart the sshd service:
 `systemctl restart sshd`
