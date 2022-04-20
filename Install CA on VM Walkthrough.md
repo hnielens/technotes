@@ -186,10 +186,12 @@ https://www.vultr.com/docs/setup-sftp-only-user-accounts-on-centos-7
 - Edit the `/etc/ssh/sshd_config` file for use with `internal-sftp`
 `cp /etc/ssh/sshd_config /etc/ssh/sshd_config._backup_suffix`
 `vi /etc/ssh/sshd_config`
-- Find the line:
-`Subsystem sftp /usr/libexec/openssh/sftp-server`
-and replace it with (or comment it and add):
-`Subsystem sftp internal-sftp`
+- replace the SFTP subsystem:
+-
+```
+# Subsystem sftp  /usr/libexec/openssh/sftp-server
+Subsystem  sftp internal-sftp
+```
 - Make sure `PasswordAuthentication` is enabled
 - At the bottom of the file add following directives
 ```
