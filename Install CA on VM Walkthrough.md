@@ -203,7 +203,9 @@ ForceCommand internal-sftp
 ```
 Notice that we set the ChrootDirectory to match the home directory of each respective SFTP user (`%h`)
 - Restart the sshd service:
-`systemctl restart sshd`
+```
+systemctl restart sshd
+```
 
 ### Set up SFTP users (do below for every sftp user)
 
