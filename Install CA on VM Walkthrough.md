@@ -67,7 +67,9 @@ dnf install xorg-x11-apps
 xeyes
 ```
 
-- Check the `/etc/ssh/sshd_config` file
+- Check the `/etc/ssh/sshd_config` file, make sure the X11Forwarding is set to yes, if not, make a backup of the config and set X11Forwarding to yes. Make sure to restart the sshd service when you change the config:
+
+`systemctl restart sshd`
 
 ## Set up Apache Directory Server
 - Install java
