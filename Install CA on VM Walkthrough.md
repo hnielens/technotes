@@ -57,9 +57,13 @@ dnf update
 dnf install xauth
 ```
 - Optionally test whether your X-term works with xeyes. First make sure you ssh-ed in into your server with the -Y handle and you did not get specific errors. You might need to add and enable the epel and CentOS powertools software repositories before you can install the x-tools...
+
+
 ```
 dnf update
-dnf install xeyes
+dnf config-manager --set-enabled powertools
+dnf install epel-release
+dnf install xorg-x11-apps
 xeyes
 ```
 
