@@ -70,7 +70,7 @@ xeyes
 - Check the `/etc/ssh/sshd_config` file, make sure the X11Forwarding is set to yes, if not, make a backup of the config and set X11Forwarding to yes. Make sure to restart the sshd service when you change the config:
 
 ```
-systemctl restart sshd 
+systemctl restart sshd
 ```
 
 ## Set up Apache Directory Server
@@ -124,7 +124,18 @@ docker run -itd \
 **Note**
 
 The db2inst1 password will expire as per the specific security configuration in the docker container's os. When the password has expired you will need to connect to the container to change the password.
+Check: https://www.cyberciti.biz/tips/setting-off-password-aging-expiration.html
 
+Use:
+
+```
+# List the password info
+chage -l db2inst1
+
+# Change the password info
+chage db2inst1
+
+```
 ## Install and Configure Cognos Analytics
 ### Get the software and install
 - Make sure you check the prerequisite libraries/tools before you start the installation: https://www.ibm.com/software/reports/compatibility/clarity. Otherwise you might bump into this kind of error when trying to run the installer:
@@ -182,6 +193,8 @@ rm /root/db2data/createDb.sql
 - Now use Cognos Configuration to test the repository db and try and start Cognos
 - Configure a new generic ldap authentication namespace for the Apache Directory Server instance you installed and set up earlier
 
+### Configure the server for TLS/startTLS SMTP server (notification)
+https://www.ibm.com/docs/en/cognos-analytics/11.2.0?topic=server-enabling-secure-tls-connection-your-email
 
 ## Set up SFTP and SFTP users
 This is a good base article:
